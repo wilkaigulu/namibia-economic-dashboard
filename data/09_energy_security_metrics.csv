@@ -1,0 +1,5 @@
+Metric,Current_Value,Target_Value,Unit,Status
+Import Dependency,60,40,%,Above Target
+Peak Demand,673,1243,MW,Growing
+Renewable Share,21,70,%,Below Target
+Domestic Generation,40,80,%,Below Target

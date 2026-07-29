@@ -1,0 +1,26 @@
+name: Update World Bank Data
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Runs every Monday at midnight
+  workflow_dispatch:
+
+jobs:
+  update:
+  runs-on: ubuntu-latest
+    steps:
+        uses: actions/checkout@v4
+
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+          run: pip install requests
+
+          run: python data_pipeline.py
+
+          uses: stefanzweifel/git-auto-commit-action@v5
+          with:
+            commit_message: "Auto: World Bank Data Update"
+            file_pattern: 'data/gdp_growth.csv data/unemployment_wb.csv data/trade_pct_gdp.csv data/fdi_inflows.csv data/debt_wb.csv data/namibia_master.json'
+

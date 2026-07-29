@@ -1,0 +1,7 @@
+Source,Percentage,Installed_Capacity_MW,Color_Code
+Hydropower,35,347,#4facfe
+Imports,30,0,#f093fb
+Coal (Thermal),20,120,#232526
+Heavy Fuel Oil,10,76.5,#f5576c
+Solar PV,4,171,#11998e
+Wind,1,5,#667eea

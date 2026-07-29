@@ -1,0 +1,1257 @@
+{
+  "metadata": {
+    "last_updated": "2026-07-29T19:11:26.689065",
+    "auto_sources": [
+      "World Bank API"
+    ],
+    "manual_sources": [
+      "NSA NCPI (inflation_manual.csv)",
+      "BoN MPC (repo_rate_manual.csv)",
+      "BoN Quarterly Bulletin (trade_balance_manual.csv)",
+      "NamPower / IRENA (electricity_manual.csv)",
+      "NGH2P / News (hydrogen_manual.csv)"
+    ],
+    "next_manual_update": "Update inflation_manual.csv when NSA releases NCPI (~monthly)"
+  },
+  "02_inflation_monthly_2026": [
+    {
+      "Month": "Jan",
+      "Month_Num": "1",
+      "Inflation_Rate_Pct": "3.4",
+      "Repo_Rate_Pct": "6.25"
+    },
+    {
+      "Month": "Feb",
+      "Month_Num": "2",
+      "Inflation_Rate_Pct": "3.5",
+      "Repo_Rate_Pct": "6.25"
+    },
+    {
+      "Month": "Mar",
+      "Month_Num": "3",
+      "Inflation_Rate_Pct": "3.7",
+      "Repo_Rate_Pct": "6.25"
+    },
+    {
+      "Month": "Apr",
+      "Month_Num": "4",
+      "Inflation_Rate_Pct": "3.8",
+      "Repo_Rate_Pct": "6.25"
+    },
+    {
+      "Month": "May",
+      "Month_Num": "5",
+      "Inflation_Rate_Pct": "3.9",
+      "Repo_Rate_Pct": "6.25"
+    },
+    {
+      "Month": "Jun",
+      "Month_Num": "6",
+      "Inflation_Rate_Pct": "4",
+      "Repo_Rate_Pct": "6.25"
+    }
+  ],
+  "03_unemployement": [
+    {
+      "Survey_Year": "2016",
+      "Strict_Unemployment_Pct": "34",
+      "Broad_Unemployment_Pct": "43",
+      "Labour_Force_Population": "750000",
+      "Unemployed_Persons": "255000",
+      "Youth_Unemployement_Est_Pct": "40",
+      "Source": "NSA Labour Force Survey",
+      "Survey_Date": "2016"
+    },
+    {
+      "Survey_Year": "2018",
+      "Strict_Unemployment_Pct": "33.4",
+      "Broad_Unemployment_Pct": "42",
+      "Labour_Force_Population": "780000",
+      "Unemployed_Persons": "260520",
+      "Youth_Unemployement_Est_Pct": "39",
+      "Source": "NSA Labour Force Survey",
+      "Survey_Date": "2018"
+    },
+    {
+      "Survey_Year": "2023",
+      "Strict_Unemployment_Pct": "36.9",
+      "Broad_Unemployment_Pct": "54.8",
+      "Labour_Force_Population": "867247",
+      "Unemployed_Persons": "320442",
+      "Youth_Unemployement_Est_Pct": "45",
+      "Source": "NSA Labour Force Survey",
+      "Survey_Date": "29/01/2023"
+    }
+  ],
+  "04_debt_to_gdp": [
+    {
+      "Year": "2020",
+      "Debt_to_GDP_Pct": "62.8",
+      "Total_Debt_NS_Billion": "96.5",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "8.2",
+      "Fiscal_Deficit_Pct": "8.1",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "Ministry of Finance / IMF"
+    },
+    {
+      "Year": "2021",
+      "Debt_to_GDP_Pct": "65.1",
+      "Total_Debt_NS_Billion": "115.3",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "9.5",
+      "Fiscal_Deficit_Pct": "5.3",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "Ministry of Finance / IMF"
+    },
+    {
+      "Year": "2022",
+      "Debt_to_GDP_Pct": "66.3",
+      "Total_Debt_NS_Billion": "132.8",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "10.8",
+      "Fiscal_Deficit_Pct": "4.7",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "Ministry of Finance / IMF"
+    },
+    {
+      "Year": "2023",
+      "Debt_to_GDP_Pct": "65.9",
+      "Total_Debt_NS_Billion": "148.2",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "12.1",
+      "Fiscal_Deficit_Pct": "5.2",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "Ministry of Finance / IMF"
+    },
+    {
+      "Year": "2024",
+      "Debt_to_GDP_Pct": "67.1",
+      "Total_Debt_NS_Billion": "162.5",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "13.2",
+      "Fiscal_Deficit_Pct": "5.8",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "Ministry of Finance / IMF"
+    },
+    {
+      "Year": "2025",
+      "Debt_to_GDP_Pct": "66.1",
+      "Total_Debt_NS_Billion": "168",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "13.8",
+      "Fiscal_Deficit_Pct": "5.5",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "Ministry of Finance / IMF"
+    },
+    {
+      "Year": "2026",
+      "Debt_to_GDP_Pct": "65.2",
+      "Total_Debt_NS_Billion": "174.5",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "14.3",
+      "Fiscal_Deficit_Pct": "5.5",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "Ministry of Finance / IMF"
+    },
+    {
+      "Year": "2027",
+      "Debt_to_GDP_Pct": "67.1",
+      "Total_Debt_NS_Billion": "185",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "15",
+      "Fiscal_Deficit_Pct": "5",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "IMF Projection"
+    },
+    {
+      "Year": "2028",
+      "Debt_to_GDP_Pct": "67.9",
+      "Total_Debt_NS_Billion": "195",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "15.8",
+      "Fiscal_Deficit_Pct": "4.5",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "IMF Projection"
+    },
+    {
+      "Year": "2029",
+      "Debt_to_GDP_Pct": "68.6",
+      "Total_Debt_NS_Billion": "205",
+      "Domestic_Debt_Pct": "88",
+      "Foreign_Debt_Pct": "12",
+      "Interest_Payments_NS_Billion": "16.5",
+      "Fiscal_Deficit_Pct": "4",
+      "SADC_Benchmark_Pct": "60",
+      "Source": "IMF Projection"
+    }
+  ],
+  "05_debt_composition": [
+    {
+      "Debt_Type": "Domestic Debt",
+      "Percentage": "88",
+      "Amount_NS_Billion": "153.6",
+      "Color_Code": "#667eea"
+    },
+    {
+      "Debt_Type": "Foreign Debt",
+      "Percentage": "12",
+      "Amount_NS_Billion": "20.9",
+      "Color_Code": "#764ba2"
+    }
+  ],
+  "06_trade_balance_annual": [
+    {
+      "Year": "2020",
+      "Exports_NS_Million": "45000",
+      "Imports_NS_Million": "62000",
+      "Balance_NS_Billion": "-17000",
+      "Source": "NSA"
+    },
+    {
+      "Year": "2021",
+      "Exports_NS_Million": "78000",
+      "Imports_NS_Million": "95000",
+      "Balance_NS_Billion": "-17000",
+      "Source": "NSA"
+    },
+    {
+      "Year": "2022",
+      "Exports_NS_Million": "95000",
+      "Imports_NS_Million": "120000",
+      "Balance_NS_Billion": "-25000",
+      "Source": "NSA"
+    },
+    {
+      "Year": "2023",
+      "Exports_NS_Million": "110000",
+      "Imports_NS_Million": "140000",
+      "Balance_NS_Billion": "-30000",
+      "Source": "NSA"
+    },
+    {
+      "Year": "2024",
+      "Exports_NS_Million": "118961",
+      "Imports_NS_Million": "161474",
+      "Balance_NS_Billion": "-42513",
+      "Source": "NSA"
+    },
+    {
+      "Year": "2025",
+      "Exports_NS_Million": "125600",
+      "Imports_NS_Million": "150500",
+      "Balance_NS_Billion": "-24900",
+      "Source": "NSA"
+    }
+  ],
+  "09_energy_security_metrics": [
+    {
+      "Metric": "Import Dependency",
+      "Current_Value": "60",
+      "Target_Value": "40",
+      "Unit": "%",
+      "Status": "Above Target"
+    },
+    {
+      "Metric": "Peak Demand",
+      "Current_Value": "673",
+      "Target_Value": "1243",
+      "Unit": "MW",
+      "Status": "Growing"
+    },
+    {
+      "Metric": "Renewable Share",
+      "Current_Value": "21",
+      "Target_Value": "70",
+      "Unit": "%",
+      "Status": "Below Target"
+    },
+    {
+      "Metric": "Domestic Generation",
+      "Current_Value": "40",
+      "Target_Value": "80",
+      "Unit": "%",
+      "Status": "Below Target"
+    }
+  ],
+  "10_generation_pipeline": [
+    {
+      "Project": "Sores ||Gaib Solar",
+      "Capacity_MW": "100",
+      "Type": "Solar",
+      "COD": "Q4 2026",
+      "Cost": "N$1.6bn",
+      "Status": "Under Construction",
+      "Owner": "NamPower"
+    },
+    {
+      "Project": "Diaz Wind",
+      "Capacity_MW": "44",
+      "Type": "Wind",
+      "COD": "2026",
+      "Cost": "$66m",
+      "Status": "Under Construction",
+      "Owner": "IPP"
+    },
+    {
+      "Project": "Cerim Wind",
+      "Capacity_MW": "50",
+      "Type": "Wind",
+      "COD": "2026",
+      "Cost": "$76m",
+      "Status": "Under Construction",
+      "Owner": "IPP"
+    },
+    {
+      "Project": "Khan Solar",
+      "Capacity_MW": "20",
+      "Type": "Solar",
+      "COD": "2025",
+      "Cost": "$14m",
+      "Status": "Under Construction",
+      "Owner": "IPP"
+    },
+    {
+      "Project": "Omburu Solar II",
+      "Capacity_MW": "80",
+      "Type": "Solar",
+      "COD": "Q4 2028",
+      "Cost": "N$1.3bn",
+      "Status": "Planned",
+      "Owner": "NamPower"
+    },
+    {
+      "Project": "Otijkoto Biomass",
+      "Capacity_MW": "40",
+      "Type": "Biomass",
+      "COD": "2027",
+      "Cost": "$160m",
+      "Status": "Planned",
+      "Owner": "NamPower"
+    },
+    {
+      "Project": "Baynes Hydro",
+      "Capacity_MW": "440",
+      "Type": "Hydro",
+      "COD": "2031",
+      "Cost": "$1.6bn",
+      "Status": "Feasibility",
+      "Owner": "Namibia-Angola"
+    }
+  ],
+  "11_green_hydrogen_projects": [
+    {
+      "Project": "Hyphen Hydrogen Energy",
+      "Investment_USD_Million": "9400",
+      "Investment_NS_Million": "169200",
+      "Status": "Pre-construction / FID 2026",
+      "Capacity": "300,000 tonnes GH2/year",
+      "Jobs": "15000",
+      "Location": "Luderitz",
+      "Category": "Mega Project"
+    },
+    {
+      "Project": "Daures Green Hydrogen Village",
+      "Investment_USD_Million": "0",
+      "Investment_NS_Million": "52000",
+      "Status": "Pilot phase",
+      "Capacity": "180,000 tonnes GH2/year",
+      "Jobs": "500",
+      "Location": "Erongo",
+      "Category": "Commercial"
+    },
+    {
+      "Project": "Zhero Green Ammonia",
+      "Investment_USD_Million": "0",
+      "Investment_NS_Million": "30000",
+      "Status": "Development / FID 2026",
+      "Capacity": "500,000 tonnes ammonia/year",
+      "Jobs": "1000",
+      "Location": "Walvis Bay",
+      "Category": "Commercial"
+    },
+    {
+      "Project": "Elof Hansson Green Ammonia",
+      "Investment_USD_Million": "0",
+      "Investment_NS_Million": "25000",
+      "Status": "Development",
+      "Capacity": "430,000 tonnes/year",
+      "Jobs": "800",
+      "Location": "Walvis Bay",
+      "Category": "Commercial"
+    },
+    {
+      "Project": "HDF Energy Renewstable",
+      "Investment_USD_Million": "0",
+      "Investment_NS_Million": "500",
+      "Status": "Development",
+      "Capacity": "Utility-scale power plant",
+      "Jobs": "150",
+      "Location": "Swakopmund",
+      "Category": "Power"
+    },
+    {
+      "Project": "Cleanergy Hydrogen Dune",
+      "Investment_USD_Million": "0",
+      "Investment_NS_Million": "200",
+      "Status": "80% complete",
+      "Capacity": "5 MW electrolyser",
+      "Jobs": "50",
+      "Location": "Walvis Bay",
+      "Category": "Pilot"
+    },
+    {
+      "Project": "HyIron Oshivela",
+      "Investment_USD_Million": "15.6",
+      "Investment_NS_Million": "280",
+      "Status": "Operational (Mar 2025)",
+      "Capacity": "15,000 tonnes DRI/year",
+      "Jobs": "200",
+      "Location": "Arandis",
+      "Category": "Operational"
+    }
+  ],
+  "12_green_fdi_funding": [
+    {
+      "Partner": "Germany (BMWK)",
+      "Amount_NS_Million": "280",
+      "Amount_USD_Million": "15.6",
+      "Purpose": "Technical assistance + wind measurement",
+      "Type": "Grant"
+    },
+    {
+      "Partner": "African Development Bank (SEFA)",
+      "Amount_NS_Million": "0",
+      "Amount_USD_Million": "10",
+      "Purpose": "Hyphen FEED study",
+      "Type": "Loan"
+    },
+    {
+      "Partner": "USAID",
+      "Amount_NS_Million": "0",
+      "Amount_USD_Million": "1",
+      "Purpose": "SDG Namibia One Fund mobilization",
+      "Type": "Grant"
+    },
+    {
+      "Partner": "EU / Netherlands",
+      "Amount_NS_Million": "242",
+      "Amount_USD_Million": "13.4",
+      "Purpose": "HyIron Phase 2 expansion",
+      "Type": "Grant"
+    },
+    {
+      "Partner": "Climate Investment Fund",
+      "Amount_NS_Million": "0",
+      "Amount_USD_Million": "500",
+      "Purpose": "Industry Decarbonization Programme",
+      "Type": "Concessional"
+    }
+  ],
+  "14_upcoming_milestones": [
+    {
+      "Event": "Hyphen FID (Final Investment Decision)",
+      "Expected_Date": "2026",
+      "Status": "Pending",
+      "Category": "Investment",
+      "Impact": "Critical"
+    },
+    {
+      "Event": "Sores ||Gaib 100MW Solar COD",
+      "Expected_Date": "Q4 2026",
+      "Status": "Under Construction",
+      "Category": "Energy",
+      "Impact": "High"
+    },
+    {
+      "Event": "Diaz 44MW Wind COD",
+      "Expected_Date": "2026",
+      "Status": "Under Construction",
+      "Category": "Energy",
+      "Impact": "Medium"
+    },
+    {
+      "Event": "Cerim 50MW Wind COD",
+      "Expected_Date": "2026",
+      "Status": "Under Construction",
+      "Category": "Energy",
+      "Impact": "Medium"
+    },
+    {
+      "Event": "National Green Hydrogen Policy approval",
+      "Expected_Date": "2026",
+      "Status": "Under Review",
+      "Category": "Policy",
+      "Impact": "High"
+    },
+    {
+      "Event": "Cross-border pipeline master plan",
+      "Expected_Date": "Mid-2026",
+      "Status": "In Progress",
+      "Category": "Infrastructure",
+      "Impact": "Medium"
+    }
+  ],
+  "15_kpi_summary": [
+    {
+      "KPI_Name": "Inflation Rate",
+      "Current_Value": "4",
+      "Unit": "%",
+      "Period": "2026 Forecast",
+      "Trend": "Up",
+      "Source": "Bank of Namibia"
+    },
+    {
+      "KPI_Name": "Repo Rate",
+      "Current_Value": "6.25",
+      "Unit": "%",
+      "Period": "Current",
+      "Trend": "Stable",
+      "Source": "Bank of Namibia"
+    },
+    {
+      "KPI_Name": "Unemployment (Strict)",
+      "Current_Value": "36.9",
+      "Unit": "%",
+      "Period": "2023",
+      "Trend": "Up",
+      "Source": "NSA"
+    },
+    {
+      "KPI_Name": "Unemployment (Broad)",
+      "Current_Value": "54.8",
+      "Unit": "%",
+      "Period": "2023",
+      "Trend": "Up",
+      "Source": "NSA"
+    },
+    {
+      "KPI_Name": "Debt-to-GDP",
+      "Current_Value": "65.2",
+      "Unit": "%",
+      "Period": "FY2025/26",
+      "Trend": "Down",
+      "Source": "Ministry of Finance"
+    },
+    {
+      "KPI_Name": "Total Debt",
+      "Current_Value": "174.5",
+      "Unit": "N$ Billion",
+      "Period": "FY2025/26",
+      "Trend": "Up",
+      "Source": "Ministry of Finance"
+    },
+    {
+      "KPI_Name": "Trade Balance",
+      "Current_Value": "-3100",
+      "Unit": "N$ Million",
+      "Period": "May-26",
+      "Trend": "Improving",
+      "Source": "NSA"
+    },
+    {
+      "KPI_Name": "Trade Exports",
+      "Current_Value": "12400",
+      "Unit": "N$ Million",
+      "Period": "May-26",
+      "Trend": "Up",
+      "Source": "NSA"
+    },
+    {
+      "KPI_Name": "Trade Imports",
+      "Current_Value": "15500",
+      "Unit": "N$ Million",
+      "Period": "May-26",
+      "Trend": "Up",
+      "Source": "NSA"
+    },
+    {
+      "KPI_Name": "Renewable Share",
+      "Current_Value": "21",
+      "Unit": "%",
+      "Period": "Current",
+      "Trend": "Up",
+      "Source": "NamPower"
+    },
+    {
+      "KPI_Name": "Import Dependency",
+      "Current_Value": "60",
+      "Unit": "%",
+      "Period": "Current",
+      "Trend": "High",
+      "Source": "NamPower"
+    },
+    {
+      "KPI_Name": "Green FDI Committed",
+      "Current_Value": "37.4",
+      "Unit": "N$ Billion",
+      "Period": "To Date",
+      "Trend": "Up",
+      "Source": "NGH2P"
+    },
+    {
+      "KPI_Name": "Green Hydrogen Jobs",
+      "Current_Value": "800",
+      "Unit": "Jobs",
+      "Period": "To Date",
+      "Trend": "Up",
+      "Source": "NGH2P"
+    },
+    {
+      "KPI_Name": "Investment Needed 2040",
+      "Current_Value": "190",
+      "Unit": "USD Billion",
+      "Period": "2040 Target",
+      "Trend": "Massive",
+      "Source": "NGH2P"
+    }
+  ],
+  "debt_wb": [
+    {
+      "Year": "2007",
+      "Debt_to_GDP_Pct": "117.52",
+      "Source": "World Bank API",
+      "Note": "WB data available"
+    },
+    {
+      "Year": "2008",
+      "Debt_to_GDP_Pct": "1.1",
+      "Source": "World Bank API",
+      "Note": "WB data available"
+    },
+    {
+      "Year": "2009",
+      "Debt_to_GDP_Pct": "0.28",
+      "Source": "World Bank API",
+      "Note": "WB data available"
+    },
+    {
+      "Year": "2010",
+      "Debt_to_GDP_Pct": "1.61",
+      "Source": "World Bank API",
+      "Note": "WB data available"
+    },
+    {
+      "Year": "2011",
+      "Debt_to_GDP_Pct": "7.45",
+      "Source": "World Bank API",
+      "Note": "WB data available"
+    },
+    {
+      "Year": "2012",
+      "Debt_to_GDP_Pct": "-1.17",
+      "Source": "World Bank API",
+      "Note": "Missing for Namibia"
+    },
+    {
+      "Year": "2013",
+      "Debt_to_GDP_Pct": "2.57",
+      "Source": "World Bank API",
+      "Note": "WB data available"
+    },
+    {
+      "Year": "2015",
+      "Debt_to_GDP_Pct": "4.67",
+      "Source": "World Bank API",
+      "Note": "WB data available"
+    }
+  ],
+  "electricity_manual": [
+    {
+      "Source": "Hydropower",
+      "Percentage": "35",
+      "Installed_Capacity_MW": "347",
+      "Color_Code": "#4facfe"
+    },
+    {
+      "Source": "Imports",
+      "Percentage": "30",
+      "Installed_Capacity_MW": "0",
+      "Color_Code": "#f093fb"
+    },
+    {
+      "Source": "Coal (Thermal)",
+      "Percentage": "20",
+      "Installed_Capacity_MW": "120",
+      "Color_Code": "#232526"
+    },
+    {
+      "Source": "Heavy Fuel Oil",
+      "Percentage": "10",
+      "Installed_Capacity_MW": "76.5",
+      "Color_Code": "#f5576c"
+    },
+    {
+      "Source": "Solar PV",
+      "Percentage": "4",
+      "Installed_Capacity_MW": "171",
+      "Color_Code": "#11998e"
+    },
+    {
+      "Source": "Wind",
+      "Percentage": "1",
+      "Installed_Capacity_MW": "5",
+      "Color_Code": "#667eea"
+    }
+  ],
+  "fdi_inflows": [
+    {
+      "Year": "2001",
+      "FDI_Net_Inflows_USD_Million": "379.34",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2002",
+      "FDI_Net_Inflows_USD_Million": "147.54",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2003",
+      "FDI_Net_Inflows_USD_Million": "65.11",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2004",
+      "FDI_Net_Inflows_USD_Million": "223.56",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2005",
+      "FDI_Net_Inflows_USD_Million": "389.85",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2006",
+      "FDI_Net_Inflows_USD_Million": "610.2",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2007",
+      "FDI_Net_Inflows_USD_Million": "669.18",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2008",
+      "FDI_Net_Inflows_USD_Million": "750.43",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2009",
+      "FDI_Net_Inflows_USD_Million": "829.05",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2010",
+      "FDI_Net_Inflows_USD_Million": "287.53",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2011",
+      "FDI_Net_Inflows_USD_Million": "803.6",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2012",
+      "FDI_Net_Inflows_USD_Million": "1041.56",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2013",
+      "FDI_Net_Inflows_USD_Million": "777.07",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2014",
+      "FDI_Net_Inflows_USD_Million": "445.58",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2015",
+      "FDI_Net_Inflows_USD_Million": "838.88",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2016",
+      "FDI_Net_Inflows_USD_Million": "358.73",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2017",
+      "FDI_Net_Inflows_USD_Million": "280.48",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2018",
+      "FDI_Net_Inflows_USD_Million": "234.37",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2019",
+      "FDI_Net_Inflows_USD_Million": "-176.48",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2020",
+      "FDI_Net_Inflows_USD_Million": "-150.17",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2021",
+      "FDI_Net_Inflows_USD_Million": "840.29",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2022",
+      "FDI_Net_Inflows_USD_Million": "1056.04",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2023",
+      "FDI_Net_Inflows_USD_Million": "2294.38",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2024",
+      "FDI_Net_Inflows_USD_Million": "1934.93",
+      "Source": "World Bank API"
+    }
+  ],
+  "gdp_growth": [
+    {
+      "Year": "2001",
+      "GDP_Growth_Pct": "1.18",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2002",
+      "GDP_Growth_Pct": "4.79",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2003",
+      "GDP_Growth_Pct": "4.24",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2004",
+      "GDP_Growth_Pct": "12.27",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2005",
+      "GDP_Growth_Pct": "2.53",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2006",
+      "GDP_Growth_Pct": "7.07",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2007",
+      "GDP_Growth_Pct": "5.37",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2008",
+      "GDP_Growth_Pct": "2.65",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2009",
+      "GDP_Growth_Pct": "0.3",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2010",
+      "GDP_Growth_Pct": "6.04",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2011",
+      "GDP_Growth_Pct": "5.09",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2012",
+      "GDP_Growth_Pct": "5.06",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2013",
+      "GDP_Growth_Pct": "5.61",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2014",
+      "GDP_Growth_Pct": "6.09",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2015",
+      "GDP_Growth_Pct": "4.26",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2016",
+      "GDP_Growth_Pct": "0.03",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2017",
+      "GDP_Growth_Pct": "-1.03",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2018",
+      "GDP_Growth_Pct": "1.06",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2019",
+      "GDP_Growth_Pct": "-0.84",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2020",
+      "GDP_Growth_Pct": "-8.1",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2021",
+      "GDP_Growth_Pct": "3.6",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2022",
+      "GDP_Growth_Pct": "5.4",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2023",
+      "GDP_Growth_Pct": "4.32",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2024",
+      "GDP_Growth_Pct": "3.78",
+      "Source": "World Bank API"
+    },
+    {
+      "Year": "2025",
+      "GDP_Growth_Pct": "1.73",
+      "Source": "World Bank API"
+    }
+  ],
+  "hydrogen_manual": [
+    {
+      "Date": "08/05/2026",
+      "Title": "Government reaffirms total commitment to Hyphen project",
+      "Source": "Fuel Cells Works",
+      "Impact": "High",
+      "Category": "Policy",
+      "Summary": "Government confirms 24% state interest in Hyphen"
+    },
+    {
+      "Date": "20/01/2026",
+      "Title": "AfDB approves $10m loan for Hyphen green hydrogen project",
+      "Source": "Energies Media",
+      "Impact": "High",
+      "Category": "Financing",
+      "Summary": "SEFA loan for front-end engineering design. 15,000 construction jobs expected"
+    },
+    {
+      "Date": "01/12/2025",
+      "Title": "Cross-border hydrogen pipeline pre-feasibility completed",
+      "Source": "NGH2P",
+      "Impact": "Medium",
+      "Category": "Infrastructure",
+      "Summary": "Pipeline linking Lüderitz to Gauteng via Saldanha Bay"
+    },
+    {
+      "Date": "01/04/2025",
+      "Title": "National Green Hydrogen Policy draft finalized",
+      "Source": "NGH2P",
+      "Impact": "High",
+      "Category": "Policy",
+      "Summary": "Covers environmental protection, worker safety, institutional coordination"
+    },
+    {
+      "Date": "12/03/2025",
+      "Title": "HyIron Oshivela produces first green hydrogen-powered iron in SSA",
+      "Source": "IPPR",
+      "Impact": "High",
+      "Category": "Milestone",
+      "Summary": "12MW electrolyser - largest in Southern Hemisphere"
+    },
+    {
+      "Date": "01/08/2025",
+      "Title": "Namibia secures N$2.08bn for green hydrogen projects",
+      "Source": "ESI-Africa",
+      "Impact": "High",
+      "Category": "Investment",
+      "Summary": "800+ Namibians employed. N$170m to local SMEs"
+    },
+    {
+      "Date": "01/01/2025",
+      "Title": "CIF Industry Decarbonization Programme - Namibia ranked 3rd globally",
+      "Source": "NGH2P",
+      "Impact": "High",
+      "Category": "Financing",
+      "Summary": "Access to concessional capital at ~1% USD interest"
+    }
+  ],
+  "inflation_manual": [
+    {
+      "Year": "2020",
+      "Inflation_Rate_Pct": "2.2",
+      "Source": "Bank of Namibia / FRED",
+      "Notes": "COVID impact"
+    },
+    {
+      "Year": "2021",
+      "Inflation_Rate_Pct": "3.6",
+      "Source": "Bank of Namibia / FRED",
+      "Notes": "Recovery"
+    },
+    {
+      "Year": "2022",
+      "Inflation_Rate_Pct": "6.1",
+      "Source": "Bank of Namibia / FRED",
+      "Notes": "Global inflation spike"
+    },
+    {
+      "Year": "2023",
+      "Inflation_Rate_Pct": "5.9",
+      "Source": "Bank of Namibia / FRED",
+      "Notes": ""
+    },
+    {
+      "Year": "2024",
+      "Inflation_Rate_Pct": "4.5",
+      "Source": "Bank of Namibia / FRED",
+      "Notes": ""
+    },
+    {
+      "Year": "2025",
+      "Inflation_Rate_Pct": "3.6",
+      "Source": "Bank of Namibia / FRED",
+      "Notes": ""
+    },
+    {
+      "Year": "2026",
+      "Inflation_Rate_Pct": "4",
+      "Source": "Bank of Namibia / FRED",
+      "Notes": "Forecast (revised down from 4.2%)"
+    },
+    {
+      "Year": "",
+      "Inflation_Rate_Pct": "",
+      "Source": "",
+      "Notes": ""
+    },
+    {
+      "Year": "",
+      "Inflation_Rate_Pct": "",
+      "Source": "",
+      "Notes": ""
+    },
+    {
+      "Year": "",
+      "Inflation_Rate_Pct": "",
+      "Source": "",
+      "Notes": ""
+    },
+    {
+      "Year": "",
+      "Inflation_Rate_Pct": "",
+      "Source": "",
+      "Notes": ""
+    },
+    {
+      "Year": "",
+      "Inflation_Rate_Pct": "",
+      "Source": "",
+      "Notes": ""
+    },
+    {
+      "Year": "",
+      "Inflation_Rate_Pct": "",
+      "Source": "",
+      "Notes": ""
+    }
+  ],
+  "trade_balance_manual": [
+    {
+      "Month": "Jan",
+      "Month_Num": "1",
+      "Exports_NS_Million": "10800",
+      "Imports_NS_Million": "11200",
+      "Balance_NS_Million": "-400"
+    },
+    {
+      "Month": "Feb",
+      "Month_Num": "2",
+      "Exports_NS_Million": "9500",
+      "Imports_NS_Million": "13200",
+      "Balance_NS_Million": "-3700"
+    },
+    {
+      "Month": "Mar",
+      "Month_Num": "3",
+      "Exports_NS_Million": "10200",
+      "Imports_NS_Million": "14100",
+      "Balance_NS_Million": "-3900"
+    },
+    {
+      "Month": "Apr",
+      "Month_Num": "4",
+      "Exports_NS_Million": "9850",
+      "Imports_NS_Million": "14250",
+      "Balance_NS_Million": "-4400"
+    },
+    {
+      "Month": "May",
+      "Month_Num": "5",
+      "Exports_NS_Million": "12400",
+      "Imports_NS_Million": "15500",
+      "Balance_NS_Million": "-3100"
+    }
+  ],
+  "unemployment_wb": [
+    {
+      "Year": "2001",
+      "Unemployment_Pct": "21.01",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2002",
+      "Unemployment_Pct": "21.54",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2003",
+      "Unemployment_Pct": "22.1",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2004",
+      "Unemployment_Pct": "22.09",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2005",
+      "Unemployment_Pct": "22.11",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2006",
+      "Unemployment_Pct": "21.85",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2007",
+      "Unemployment_Pct": "22.12",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2008",
+      "Unemployment_Pct": "22.0",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2009",
+      "Unemployment_Pct": "22.27",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2010",
+      "Unemployment_Pct": "22.12",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2011",
+      "Unemployment_Pct": "19.48",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2012",
+      "Unemployment_Pct": "16.77",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2013",
+      "Unemployment_Pct": "19.03",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2014",
+      "Unemployment_Pct": "18.52",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2015",
+      "Unemployment_Pct": "20.79",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2016",
+      "Unemployment_Pct": "23.35",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2017",
+      "Unemployment_Pct": "21.75",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2018",
+      "Unemployment_Pct": "19.88",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2019",
+      "Unemployment_Pct": "19.93",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2020",
+      "Unemployment_Pct": "21.0",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2021",
+      "Unemployment_Pct": "20.93",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2022",
+      "Unemployment_Pct": "19.61",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2023",
+      "Unemployment_Pct": "19.15",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2024",
+      "Unemployment_Pct": "19.16",
+      "Source": "World Bank API (ILO model)"
+    },
+    {
+      "Year": "2025",
+      "Unemployment_Pct": "19.29",
+      "Source": "World Bank API (ILO model)"
+    }
+  ]
+}
