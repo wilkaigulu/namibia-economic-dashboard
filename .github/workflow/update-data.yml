@@ -1,26 +1,36 @@
-name: Update World Bank Data
-
+name: Update Dashboard Data
+    
 on:
   schedule:
-    - cron: '0 6 * * 1' # Runs every Monday at midnight
-  workflow_dispatch:
+    - cron: "0 6 1 */3 *"
+
+  workflow_dispatch: # Allow manual trigger from GitHub UI
 
 jobs:
+
   update:
-  runs-on: ubuntu-latest
+
+    runs-on: ubuntu-latest
+
     steps:
+
+      - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-          run: pip install requests
+      - name: Install packages
+        run: |
+          pip install -r requirements.txt
 
-          run: python data_pipeline.py
+      - name: Run pipeline
+        run: |
+          python pipeline.py
 
-          uses: stefanzweifel/git-auto-commit-action@v5
-          with:
-            commit_message: "Auto: World Bank Data Update"
-            file_pattern: 'data/gdp_growth.csv data/unemployment_wb.csv data/trade_pct_gdp.csv data/fdi_inflows.csv data/debt_wb.csv data/namibia_master.json'
-
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update economic data

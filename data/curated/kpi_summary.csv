@@ -1,13 +1,13 @@
 KPI_Name,Current_Value,Unit,Period,Trend,Source
-Inflation Rate,4,%,2026 Forecast,Up,Bank of Namibia
+Inflation Rate,4.0,%,2026 Forecast,Up,Bank of Namibia
 Repo Rate,6.25,%,Current,Stable,Bank of Namibia
 Unemployment (Strict),36.9,%,2023,Up,NSA
 Unemployment (Broad),54.8,%,2023,Up,NSA
 Debt-to-GDP,65.2,%,FY2025/26,Down,Ministry of Finance
 Total Debt,174.5,N$ Billion,FY2025/26,Up,Ministry of Finance
-Trade Balance,-3100,N$ Million,May-26,Improving,NSA
-Trade Exports,12400,N$ Million,May-26,Up,NSA
-Trade Imports,15500,N$ Million,May-26,Up,NSA
+Trade Balance,-3100,N$ Million,May 2026,Improving,NSA
+Trade Exports,12400,N$ Million,May 2026,Up,NSA
+Trade Imports,15500,N$ Million,May 2026,Up,NSA
 Renewable Share,21,%,Current,Up,NamPower
 Import Dependency,60,%,Current,High,NamPower
 Green FDI Committed,37.4,N$ Billion,To Date,Up,NGH2P
