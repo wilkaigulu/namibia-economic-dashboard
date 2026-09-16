@@ -1,6 +1,6 @@
 import pandas as pd
 
-rain = pd.read_csv("data/curated/rainfall.csv")
+rain = pd.read_csv("data/automated/climate/rainfall.csv")
 
 mean = rain["value"].mean()
 
@@ -11,6 +11,6 @@ rain["drought_score"] = (
 ) / std
 
 rain.to_csv(
-    "data/curated/climate_risk_index.csv",
+    "data/automated/climate/climate_risk_index.csv",
     index=False
 )

@@ -28,7 +28,7 @@ temp_df = pd.DataFrame(
 )
 
 temp_df.to_csv(
-    "data/curated/temperature.csv",
+    "data/automated/climate/temperature.csv",
     index=False
 )
 
@@ -38,7 +38,7 @@ rain_df = pd.DataFrame(
 )
 
 rain_df.to_csv(
-    "data/curated/rainfall.csv",
+    "data/automated/climate/rainfall.csv",
     index=False
 )
 
