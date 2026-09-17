@@ -1,14 +1,25 @@
-# Namibia Economic & Climate Risk Obervatory
+# System Architecture
 
-## Objective
+World Bank API
+       |
+NASA POWER API
+       |
+       V
 
-Build an integrated economic, climate risk, infrastructure and green hydrogen analytics platform for Namibia.
+data/automated/
 
-## Data Sources 
+       +
 
-- World Bank API
-- Namibia Statistics Agency
-- Bank of Namibia
-- NASA POWER API
-- Green hydrogen reports
+data/curated/
 
+       |
+
+pipeline.py
+
+       |
+
+fact_indicator.parquet
+
+       |
+
+Power BI Dashboard
