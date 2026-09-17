@@ -1,12 +1,11 @@
-## GDP Growth 
+## GDP_GROWTH
 
 Source: World Bank
 
-Code:
-NY.GDP.MKTP.KD.ZG
+Code: NY.GDP.MKTP.KD.ZG
 
-Unit:
-Percent
+Unit: Percent
 
-Frequncy:
-Annual
+Frequncy: Annual
+
+Description: Annual percentage growth of GDP.
