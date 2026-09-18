@@ -271,6 +271,19 @@ add_indicator(
     "Climate"
 )
 
+climate_composite = pd.read_csv(
+    "data/automated/climate/climate_risk_composite.csv"
+)
+
+add_indicator(
+    climate_composite,
+    "date",
+    "climate_risk_index",
+    "CLIMATE_RISK_INDEX",
+    "Derived",
+    "Climate"
+)
+
 # --------------------------------------------------
 # BUILD WAREHOUSE
 # --------------------------------------------------
