@@ -38,6 +38,29 @@ def add_indicator(
 
     records.append(temp)
 
+
+def standardize_date(series):
+
+    s = series.astype(str).str.strip()
+
+    # Annual indicators
+    annual_mask = s.str.match(r"^\d{4}$")
+
+    result = pd.Series(index=s.index, dtype="datetime64[ns]")
+
+    result.loc[annual_mask] = pd.to_datetime(
+        s.loc[annual_mask] + "-01-01"
+    )
+
+    # Daily climate indicators
+    result.loc[~annual_mask] = pd.to_datetime(
+        s.loc[~annual_mask],
+        format="%Y%m%d",
+        errors="coerce"
+    )
+
+    return result
+
 # --------------------------------------------------
 # WORLD BANK
 # --------------------------------------------------
@@ -261,7 +284,15 @@ warehouse = warehouse.dropna(
     subset=["value"]
 )
 
-warehouse["date"] = warehouse["date"].astype(str)
+warehouse["date"] = standardize_date(warehouse["date"])
+
+warehouse["year"] = warehouse["date"].dt.year
+warehouse["month"] = warehouse["date"].dt.month
+warehouse["quarter"] = warehouse["date"].dt.quarter
+
+warehouse = warehouse.sort_values(
+    ["date", "indicator"]
+)
 
 warehouse.to_csv(
     "data/warehouse/fact_indicator.csv",
@@ -272,6 +303,7 @@ warehouse.to_parquet(
     "data/warehouse/fact_indicator.parquet",
     index=False
 )
+
 
 print(
     f"Warehouse rows: {len(warehouse):,}"
