@@ -1,0 +1,20 @@
+[project]
+name = "namibia-economic-dashboard"
+version = "2.0.0"
+description = "Namibia economic, energy, climate risk and green hydrogen observatory"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+# Pinned explicitly so a new ruff release cannot turn CI red overnight. 
+select = ["E", "F", "I", "B", "UP", "C4"]
+ignore = [
+    "E402", # scripts intentionally sys.path.insert before importing common
+    "E501", # long explanatory comments are worth more than a hard wrap
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/common.py" = ["BLE001"]
