@@ -1,18 +1,27 @@
 # Python
-_pycache__/
+__pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
+.ruff_cache/
 
 # Virtual environments
+.venv/
 venv/
 env/
 ENV/
 
 # IDE
-.vscode/
 .idea/
 *.swp
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Power BI working files (the .pbix itself IS tracked)
+~$*.pbix
+*.pbix.bak
+
+# Pipeline bookkeeping
+data/warehouse/.last_row_count
