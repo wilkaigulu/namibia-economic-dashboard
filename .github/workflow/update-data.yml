@@ -2,35 +2,69 @@ name: Update Dashboard Data
     
 on:
   schedule:
-    - cron: "0 6 1 */3 *"
+    # 04:00 UTC = 06:00 Windhoek, on the 1st of every month. 
+    - cron: "0 4 1 * *"
+  workflow_dispatch:
 
-  workflow_dispatch: # Allow manual trigger from GitHub UI
+permissionss: 
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
 
 jobs:
-
   update:
-
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
-
-      - name: Checkout
+      - name: Checkout  
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+        with: 
+          python-version: "3.12"
+          cache: pip
+          cache_dependency-path: requirements.text
 
-      - name: Install packages
-        run: |
-          pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Run pipeline
-        run: |
-          python pipeline.py
+        run: python pipeline.py
 
-      - name: Commit changes
+      - name: Summarise the build 
+        if: always()
+        run: |
+          {
+            echo "### Warehouse"
+            echo ''
+            echo '```'
+            python - <<'PY'
+            import pandas as pd
+          f = pd.read_csv("data/warehouse/fact_indicator.csv", parse_dates=["date"])
+          print(f"rows      {len(f):,}")
+          print(f"series    {f['indicator'].nunique()}")
+          print(f"span      {f['date'].min().date()} to {f['date'].max().date()}")
+          print()
+          print(f.groupby("category")["indicator"].nunique().to_string())
+          PY
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          
+      - name: Upload warehouse artefact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: warehouse-${{ github.run_number }}
+          path: data/warehouse/
+          retention-days: 30
+
+      - name: Commit refreshed data 
+        if: success()
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update economic data
+          commit_message: "data: scheduled refresh (run ${{ github.run_number }})"
+          file_pattern: "data/**/*.csv data/**/*.parquet" 
