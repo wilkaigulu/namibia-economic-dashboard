@@ -1,137 +1,113 @@
 # Namibia Economic, Energy, Climate Risk & Green Hydrogen Observatory
 
-A data-driven analytics platform for monitoring Namibia's economic performance, public finances, trade, energy transition, green hydrogen sector and climate risks. 
+A reproducible analytics platform monitoring Namibia's economic performance, public
+finances, trade, energy transition, green hydrogen sector and climate risk — with a
+Power BI front end over a Python-built star schema, refreshed monthly by GitHub Actions.
 
-## Project Objectives
+**Author:** Wilka Igulu — Climate Risk Research · Economic Analytics · Climate Finance
 
-The project provides a centralized framework for:
+---
 
-- Economic monitoring
-- Fiscal sustainability analysis
-- Trade performance tracking
-- Energy transition assesment 
-- Green hydrogen ecosystem monitoring
-- Climate risks analytics
+## Quick start
 
-## Technology Stack
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 
-- Python
-- Pandas
-- Git 
-- GitHub Actions
-- Power BI
-
-## Data Sources
-
-### Automated Sources
-
-- World Bank API
-- NASA POWER API
-
-### Curated Sources
-
-- Namibia Statistics Agency (NSA)
-- Bank of Namibia (BoN)
-- Ministry of Finance
-- NamPower
-- Green Hydrogen Reports
-
-## Repository Structure 
-
-```text 
-namibia-economic-dashboard/
-
-├── data/
-│   ├── automated/
-│   │   ├── world_bank/
-│   │   └── climate/
-│   │
-│   ├── curated/
-│   │
-│   └── warehouse/
-│       └── fact_indicator.parquet
-│
-├── src/
-│   ├── extract/
-│   ├── transform/
-│   ├── validate/
-│   └── load/
-│
-├── docs/
-│
-├── powerbi/
-│
-└── .github/workflows/
+python pipeline.py              # full refresh (hits World Bank + NASA POWER)
+python pipeline.py --offline     # rebuild the warehouse from committed CSVs only
+python pipeline.py --only load validate
+python src/docs_gen.py           # regenerate docs/data_dictionary.md
 ```
 
-## Dashboard Modules
+Then open `powerbi/NamibiaDashboard.pbix` and refresh.
 
-### Executive Overview
+## Architecture
 
-- GDP Growth
-- Inflation
-- Debt-to-GDP
-- Trade Balance
-- Climate Risk Index
+```
+World Bank API ─┐
+                ├─► data/automated/ ─┐
+NASA POWER API ─┘                   │
+                                    ├─► src/transform ─► src/load ─► data/warehouse/
+NSA · BoN · MoF · NamPower ────────►│                                 fact_indicator
+(hand-curated) data/curated/        │                                 fact_climate_monthly
+                                    │                                 dim_indicator
+Hydrogen & energy data/dimension/ ──┘                                 dim_date · dim_region
+                                                                            │
+                                               src/validate (quality gate) ─┤
+                                                                            ▼
+                                                                   Power BI model
+```
 
-### Economy
+The pipeline is fail-closed: any step that errors aborts the run, so the warehouse
+keeps its last good build rather than publishing a partial refresh.
 
-- GDP Growth
-- GDP per Capita
-- Population
-- Inflation
+## Warehouse
 
-### Finance
+| Table | Grain | Purpose |
+|---|---|---|
+| `fact_indicator` | indicator × date | every economic, fiscal, trade, labour and national climate series |
+| `fact_climate_monthly` | region × month | SPI, temperature anomaly, composite risk per region |
+| `dim_indicator` | indicator | label, unit, frequency, direction, benchmark |
+| `dim_date` | month | calendar, Namibian fiscal year (Apr–Mar), rainfall season (Oct–Sep) |
+| `dim_region` | region | the ten NASA POWER grid points and their zones |
 
-- Debt-to-GDP
-- Fiscal Deficit
-- Total Debt
+Every fact row carries `unit`, `frequency` and `is_forecast`. `is_forecast` matters:
+`data/curated/debt_to_gdp.csv` runs to 2029 and the last three years are IMF
+projections, not outturns.
 
-### Trade
+See [`docs/data_dictionary.md`](docs/data_dictionary.md) (generated) for all 27 series.
 
-- Exports
-- Imports
-- Trade Balance
+## Climate risk methodology
 
-### Energy
+Drought is measured with **SPI** (Standardised Precipitation Index, McKee et al. 1993):
+monthly rainfall accumulations over 1/3/6/12-month windows, gamma-fitted per calendar
+month against a fixed baseline, with a point mass at zero. Heat is a standardised
+temperature index against the same baseline. The composite is **one-sided** — only
+rainfall deficit and heat excess count as risk — and reported in z-units plus an
+ordinal band (Normal / Watch / Severe / Extreme).
 
-- Generation Mix
-- Renewable Share
-- Energy Security
+Baseline: WMO 1991–2020 where the record allows; the transform falls back to the full
+record and logs a warning when it does not.
 
-### Green Hydrogen
+## Dashboard pages
 
-- FDI Tracking
-- Project Pipeline
-- Industry Announcements
-- Key Milestones
+| Page | Question it answers |
+|---|---|
+| Executive Overview | Is Namibia's macro position improving, and is the climate adding stress right now? |
+| Economy & Finance | Can the fiscus carry the debt, and what is inflation doing to households? |
+| Trade & Competitiveness | What do we sell, what do we buy, and is the gap widening? |
+| Climate & Energy | Where is drought biting, and how fast is the generation mix actually changing? |
+| Green Hydrogen Observatory | What is committed, what is under construction, and what decides next? |
 
-### Climate Risk
+Design system — palette, layout grids, visual choices per page, DAX — lives in
+`powerbi/themes/` (importable theme JSON), `powerbi/measures.dax`, and
+`docs/dashboard_design.md`.
 
-- Rainfall
-- Temperature
-- Drought Score
-- Temperature Anomaly
-- Rainfall Anomaly
-- Climate Risk Composite
+## Data sources
 
-## Outputs
+**Automated:** World Bank Indicators API · NASA POWER (daily T2M, T2M_MAX, PRECTOTCORR)
 
-- fact_indicator.parquet
-- Power BI Dashboard
-- Climate Risk Analytics
-- Quarterly Economic Monitoring Reports
+**Curated (updated by hand, quarterly):** Namibia Statistics Agency · Bank of Namibia ·
+Ministry of Finance · NamPower · Namibia Green Hydrogen Programme
 
-## Future Enhancements
+## Known data caveats
 
-- Regional climate risk analysis
-- Climate finance tracking
-- Infrastructure risk indicators
-- Sovereign climate risk metrics
-- ESG and sustainable finance indicators
+- `electricity_generation.csv` mixes two different measures: `Percentage` is share of
+  *energy supplied*, `Installed_Capacity_MW` is nameplate capacity. Solar is 24% of
+  capacity but 4% of supply. Never plot them on one axis.
+- `energy_security.csv` reports renewable share at 21%, while the generation mix implies
+  ~40% (hydro 35 + solar 4 + wind 1). These are different definitions — reconcile before
+  publishing either as "the" renewable share.
+- Trade figures for 2020–2023 are round numbers and look like estimates; 2024–2025 are
+  precise. Treat the early years as indicative.
+- `UNEMPLOYMENT_STRICT/BROAD/YOUTH` have three observations each (2016, 2018, 2023).
+  That is a survey series, not a trend line — plot as columns, not a line.
 
-## Author
+## Roadmap
 
-Wilka Igulu
+See [`docs/roadmap.md`](docs/roadmap.md).
 
-Climate Risk Research | Economic Analytics | Climate Finance
+## Licence
+
+See [`LICENSE`](LICENSE).
