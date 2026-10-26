@@ -1,4 +1,7 @@
-pandas
-requests
-pyarrow
-numpy
+# Pinned so a breaking upstream release cannot silently change a published number.
+# Bump deliberately, re-run the pipeline, eyeball the validation report.
+pandas==2.2.3
+numpy==2.1.3
+requests==2.32.3
+pyarrow==18.1.0
+scipy==1.14.1
