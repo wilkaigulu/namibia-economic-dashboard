@@ -4,7 +4,7 @@ A reproducible analytics platform monitoring Namibia's economic performance, pub
 finances, trade, energy transition, green hydrogen sector and climate risk — with a
 Power BI front end over a Python-built star schema, refreshed monthly by GitHub Actions.
 
-**Author:** Wilka Igulu — Climate Risk Research · Economic Analytics · Climate Finance
+**Author:** Wilka Igulu — Quantitative Data Analysts 
 
 ---
 
