@@ -1,0 +1,22 @@
+{
+  "_comment": "Representative NASA POWER grid points, one per region of interest. 'khomas' is the national reference point kept from v1 (Windhoek). Trim this list if the extract runs too long — each entry is one API call.",
+
+  "regions": [
+    {"slug": "khomas",       "name": "Khomas (Windhoek)",         "lat": -22.56, "lon": 17.08, "zone": "Central Highlands", "national_reference": true},
+    {"slug": "erongo",       "name": "Erongo (Walvis Bay)",       "lat": -22.95, "lon": 14.51, "zone": "Coastal",           "note": "Green hydrogen / desalination corridor"},
+    {"slug": "karas",        "name": "||Karas (Luderitz)",        "lat": -26.65, "lon": 15.16, "zone": "Coastal",           "note": "Hyphen / Tsau ||Khaeb project area"},
+    {"slug": "hardap",       "name": "Hardap (Mariental)",        "lat": -24.63, "lon": 17.97, "zone": "Southern",          "note": "Irrigation, Hardap dam catchment"},
+    {"slug": "omaheke",      "name": "Omaheke (Gobabis)",         "lat": -22.45, "lon": 18.97, "zone": "Eastern",           "note": "Commercial cattle"},
+    {"slug": "otjozondjupa", "name": "Otjozondjupa (Otjiwarongo)","lat": -20.46, "lon": 16.65, "zone": "Central North"},
+    {"slug": "kunene",       "name": "Kunene (Opuwo)",            "lat": -18.06, "lon": 13.84, "zone": "North West",        "note": "Most drought-exposed communal livestock"},
+    {"slug": "oshana",       "name": "Oshana (Oshakati)",         "lat": -17.78, "lon": 15.70, "zone": "North Central",     "note": "Cuvelai, highest population density"},
+    {"slug": "kavango_east", "name": "Kavango East (Rundu)",      "lat": -17.93, "lon": 19.77, "zone": "North East",        "note": "Rain-fed crop belt"},
+    {"slug": "zambezi",      "name": "Zambezi (Katima Mulilo)",   "lat": -17.50, "lon": 24.27, "zone": "North East",        "note": "Wettest region, flood exposure"}
+  ],
+
+  "baseline": {
+    "start_year": 1991,
+    "end_year": 2020,
+    "_comment": "WMO 1991-2020 climate normal. Anomalies and SPI are measured against this fixed window so the warming trend shows up in the index instead of being absorbed into a moving mean."
+  }
+}

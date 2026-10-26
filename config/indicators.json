@@ -1,10 +1,32 @@
 {
-    "GDP_GROWTH": "NY.GDP.MKTP.KD.ZG",
-    "GDP_PER_CAPITA": "NY.GDP.PCAP.CD",
-    "INFLATION": "FP.CPI.TOTL.ZG",
-    "UNEMPLOYMENT": "SL.UEM.TOTL.ZS",
-    "FDI": "BX.KLT.DINV.WD.GD.ZS",
-    "DEBT_GDP": "GC.DOD.TOTL.GD.ZS",
-    "POPULATION": "SP.POP.TOTL",
-    "TRADE_GDP": "NE.TRD.GNFS.ZS"
+  "_comment": "World Bank indicator codes. Keys become the CSV filename and the indicator key in the warehouse. 'category' and 'unit' feed dim_indicator.",
+
+  "GDP_GROWTH":         {"code": "NY.GDP.MKTP.KD.ZG",     "category": "Economy",  "unit": "percent",       "label": "GDP growth"},
+  "GDP_PER_CAPITA":     {"code": "NY.GDP.PCAP.CD",        "category": "Economy",  "unit": "usd",           "label": "GDP per capita"},
+  "GDP_CURRENT_USD":    {"code": "NY.GDP.MKTP.CD",        "category": "Economy",  "unit": "usd",           "label": "GDP, current prices"},
+  "POPULATION":         {"code": "SP.POP.TOTL",           "category": "Economy",  "unit": "persons",       "label": "Population"},
+  "INFLATION_WB":       {"code": "FP.CPI.TOTL.ZG",        "category": "Economy",  "unit": "percent",       "label": "Inflation, consumer prices"},
+
+  "UNEMPLOYMENT_WB":    {"code": "SL.UEM.TOTL.ZS",        "category": "Labour",   "unit": "percent",       "label": "Unemployment, ILO estimate"},
+  "YOUTH_UNEMP_WB":     {"code": "SL.UEM.1524.ZS",        "category": "Labour",   "unit": "percent",       "label": "Youth unemployment, ILO estimate"},
+
+  "FDI":                {"code": "BX.KLT.DINV.WD.GD.ZS",  "category": "Finance",  "unit": "percent_gdp",   "label": "FDI net inflows"},
+  "DEBT_GDP_WB":        {"code": "GC.DOD.TOTL.GD.ZS",     "category": "Finance",  "unit": "percent_gdp",   "label": "Central government debt"},
+  "CURRENT_ACCOUNT":    {"code": "BN.CAB.XOKA.GD.ZS",     "category": "Finance",  "unit": "percent_gdp",   "label": "Current account balance"},
+  "RESERVES_MONTHS":    {"code": "FI.RES.TOTL.MO",        "category": "Finance",  "unit": "months",        "label": "Reserves in months of imports"},
+
+  "TRADE_GDP":          {"code": "NE.TRD.GNFS.ZS",        "category": "Trade",    "unit": "percent_gdp",   "label": "Trade openness"},
+  "EXPORTS_GDP":        {"code": "NE.EXP.GNFS.ZS",        "category": "Trade",    "unit": "percent_gdp",   "label": "Exports of goods and services"},
+  "IMPORTS_GDP":        {"code": "NE.IMP.GNFS.ZS",        "category": "Trade",    "unit": "percent_gdp",   "label": "Imports of goods and services"},
+  "MINERAL_RENTS":      {"code": "NY.GDP.MINR.RT.ZS",     "category": "Trade",    "unit": "percent_gdp",   "label": "Mineral rents"},
+
+  "RENEWABLE_SHARE":    {"code": "EG.FEC.RNEW.ZS",        "category": "Energy",   "unit": "percent",       "label": "Renewables in final energy consumption"},
+  "RENEWABLE_ELEC":     {"code": "EG.ELC.RNEW.ZS",        "category": "Energy",   "unit": "percent",       "label": "Renewable electricity output"},
+  "ELECTRICITY_ACCESS": {"code": "EG.ELC.ACCS.ZS",        "category": "Energy",   "unit": "percent",       "label": "Access to electricity"},
+  "ENERGY_USE_PC":      {"code": "EG.USE.PCAP.KG.OE",     "category": "Energy",   "unit": "kgoe",          "label": "Energy use per capita"},
+
+  "CO2_PER_CAPITA":     {"code": "EN.GHG.CO2.PC.CE.AR5",  "category": "Climate",  "unit": "tco2e",         "label": "CO2 emissions per capita"},
+  "AGRI_VALUE_ADDED":   {"code": "NV.AGR.TOTL.ZS",        "category": "Climate",  "unit": "percent_gdp",   "label": "Agriculture value added"},
+  "RURAL_POP_PCT":      {"code": "SP.RUR.TOTL.ZS",        "category": "Climate",  "unit": "percent",       "label": "Rural population"},
+  "WATER_STRESS":       {"code": "ER.H2O.FWST.ZS",        "category": "Climate",  "unit": "percent",       "label": "Freshwater withdrawal as share of resources"}
 }
