@@ -1,0 +1,293 @@
+// =====================================================================
+// Namibia Observatory — core measure set
+// Paste into Power BI Desktop (Model view > New measure), one at a time,
+// or use Tabular Editor to script them in.
+//
+// Model assumed (see data/warehouse/):
+//   fact_indicator  [date, indicator, value, unit, frequency, category,
+//                    source, is_forecast]
+//   dim_indicator   [indicator, label, category, unit, direction, benchmark]
+//   dim_date        [date, year, month, quarter, fiscal_year_label,
+//                    rain_season_label, is_future]       <- mark as date table
+//   dim_region      [slug, name, zone, lat, lon]
+//   fact_climate_monthly  [date, region, spi_12, drought_score, ...]
+//
+// Relationships: dim_date[date] 1 -> * fact_indicator[date]
+//                dim_indicator[indicator] 1 -> * fact_indicator[indicator]
+//                dim_region[slug] 1 -> * fact_climate_monthly[region]
+//                dim_date[date] 1 -> * fact_climate_monthly[date]
+// =====================================================================
+
+
+// ---------------------------------------------------------------------
+// 1. THE ONE MEASURE THAT MATTERS
+// ---------------------------------------------------------------------
+// Every "X Latest" card in v1 was its own measure. That does not scale:
+// 27 indicators would mean 27 near-identical measures to maintain.
+// Instead: ONE measure, and the indicator is chosen by filter context
+// (put dim_indicator[label] on the visual, or filter the card to one row).
+//
+// LASTNONBLANKVALUE is the right function here because the series are
+// ragged — the labour force survey has 3 points, SPI has 300.
+
+Latest Value =
+CALCULATE (
+    LASTNONBLANKVALUE ( dim_date[date], SUM ( fact_indicator[value] ) ),
+    KEEPFILTERS ( fact_indicator[is_forecast] = FALSE () )
+)
+
+
+Latest Date =
+CALCULATE (
+    MAX ( fact_indicator[date] ),
+    fact_indicator[is_forecast] = FALSE ()
+)
+
+
+Latest Label =
+VAR _d = [Latest Date]
+RETURN
+    IF (
+        NOT ISBLANK ( _d ),
+        FORMAT ( _d, "mmm yyyy" )
+    )
+
+
+// ---------------------------------------------------------------------
+// 2. UNIT-AWARE FORMATTING
+// ---------------------------------------------------------------------
+// Because `value` holds percent, N$ billion, USD and person-counts in one
+// column, a single numeric format on the card is always wrong for most of
+// them. This measure reads the unit from dim_indicator and formats to match.
+// Use it as the card's field (it returns text) when the card is generic;
+// use [Latest Value] with a fixed format when the card is a fixed KPI.
+
+Latest Value Formatted =
+VAR _v    = [Latest Value]
+VAR _unit = SELECTEDVALUE ( dim_indicator[unit] )
+RETURN
+    SWITCH (
+        TRUE (),
+        ISBLANK ( _v ),                "—",
+        _unit = "percent",             FORMAT ( _v, "0.0" ) & "%",
+        _unit = "percent_gdp",         FORMAT ( _v, "0.0" ) & "% of GDP",
+        _unit = "nad_billion",         "N$" & FORMAT ( _v, "#,0.0" ) & "bn",
+        _unit = "nad_million",         "N$" & FORMAT ( _v / 1000, "#,0.0" ) & "bn",
+        _unit = "usd",                 "US$" & FORMAT ( _v, "#,0" ),
+        _unit = "persons",             FORMAT ( _v / 1000000, "0.00" ) & "m",
+        _unit = "celsius",             FORMAT ( _v, "+0.0;-0.0;0.0" ) & "°C",
+        _unit = "mm",                  FORMAT ( _v, "#,0" ) & " mm",
+        _unit = "z_score",             FORMAT ( _v, "0.00" ),
+        _unit = "months",              FORMAT ( _v, "0.1" ) & " mo",
+        FORMAT ( _v, "#,0.0" )
+    )
+
+
+// ---------------------------------------------------------------------
+// 3. CHANGE, AND WHETHER THE CHANGE IS GOOD
+// ---------------------------------------------------------------------
+
+Previous Value =
+VAR _d = [Latest Date]
+RETURN
+    CALCULATE (
+        [Latest Value],
+        REMOVEFILTERS ( dim_date ),
+        dim_date[date] < _d
+    )
+
+
+Change =
+VAR _now  = [Latest Value]
+VAR _prev = [Previous Value]
+RETURN
+    IF ( NOT ( ISBLANK ( _now ) || ISBLANK ( _prev ) ), _now - _prev )
+
+
+Change Pct =
+DIVIDE ( [Change], ABS ( [Previous Value] ) )
+
+
+// Direction-aware colour. dim_indicator[direction] is "up_good", "up_bad"
+// or "neutral", so one measure serves every KPI card and the red/green
+// never has to be hand-wired per tile.
+// Swap the hexes for the Dark theme's status colours when using that theme.
+
+Change Colour =
+VAR _chg = [Change]
+VAR _dir = SELECTEDVALUE ( dim_indicator[direction] )
+VAR _good = "#1B7A4F"   // dark: #2E9A66
+VAR _bad  = "#A8302A"   // dark: #D4544A
+VAR _flat = "#5A6B74"   // dark: #9DB2BF
+RETURN
+    SWITCH (
+        TRUE (),
+        ISBLANK ( _chg ) || _dir = "neutral", _flat,
+        _dir = "up_good" && _chg > 0, _good,
+        _dir = "up_good" && _chg < 0, _bad,
+        _dir = "up_bad"  && _chg > 0, _bad,
+        _dir = "up_bad"  && _chg < 0, _good,
+        _flat
+    )
+
+
+// Arrow glyph, so direction is not carried by colour alone.
+Change Arrow =
+VAR _chg = [Change]
+RETURN
+    SWITCH ( TRUE (), ISBLANK ( _chg ), "", _chg > 0, "▲", _chg < 0, "▼", "—" )
+
+
+Change Caption =
+VAR _chg  = [Change]
+VAR _unit = SELECTEDVALUE ( dim_indicator[unit] )
+RETURN
+    IF (
+        NOT ISBLANK ( _chg ),
+        [Change Arrow] & " " &
+        FORMAT ( ABS ( _chg ), "0.0" ) &
+        IF ( _unit IN { "percent", "percent_gdp" }, " pp", "" ) &
+        " vs " & FORMAT ( [Latest Date], "yyyy" )
+    )
+
+
+// ---------------------------------------------------------------------
+// 4. ACTUAL vs FORECAST
+// ---------------------------------------------------------------------
+// Two measures over the same column so one chart can draw a solid line to
+// the last outturn and a dashed/lighter line through the IMF projections.
+// Without this split, debt_to_gdp.csv's 2027-2029 rows plot as history.
+
+Value Actual =
+CALCULATE ( SUM ( fact_indicator[value] ), fact_indicator[is_forecast] = FALSE () )
+
+
+Value Forecast =
+VAR _lastActual =
+    CALCULATE (
+        MAX ( fact_indicator[date] ),
+        REMOVEFILTERS ( dim_date ),
+        fact_indicator[is_forecast] = FALSE ()
+    )
+RETURN
+    CALCULATE (
+        SUM ( fact_indicator[value] ),
+        // Drop the is_forecast filter and start at the last outturn, so the
+        // projection line MEETS the actual line instead of leaving a gap.
+        REMOVEFILTERS ( fact_indicator[is_forecast] ),
+        KEEPFILTERS ( dim_date[date] >= _lastActual )
+    )
+
+
+Forecast Flag =
+IF ( SELECTEDVALUE ( fact_indicator[is_forecast] ) = TRUE (), "Projection", "Outturn" )
+
+
+// ---------------------------------------------------------------------
+// 5. BENCHMARK / TARGET LINES
+// ---------------------------------------------------------------------
+// Reads the threshold out of dim_indicator rather than hard-coding 60 into
+// the visual, so the SADC debt benchmark, the 4.5% inflation midpoint and
+// the SPI -1.0 drought line all come from one measure.
+
+Benchmark = SELECTEDVALUE ( dim_indicator[benchmark] )
+
+
+Benchmark Gap =
+VAR _b = [Benchmark]
+RETURN IF ( NOT ISBLANK ( _b ), [Latest Value] - _b )
+
+
+Benchmark Caption =
+VAR _b = [Benchmark]
+VAR _gap = [Benchmark Gap]
+RETURN
+    IF (
+        NOT ISBLANK ( _b ),
+        FORMAT ( ABS ( _gap ), "0.0" ) & " "
+            & IF ( _gap > 0, "above", "below" ) & " benchmark of "
+            & FORMAT ( _b, "0.0" )
+    )
+
+
+// ---------------------------------------------------------------------
+// 6. CLIMATE RISK
+// ---------------------------------------------------------------------
+
+Climate Risk =
+AVERAGE ( fact_climate_monthly[climate_risk_index] )
+
+
+SPI 12 = AVERAGE ( fact_climate_monthly[spi_12] )
+
+
+// How much of the country is in meaningful drought right now. This is the
+// number that belongs on the executive page — a national average index
+// hides the case where three regions are in extreme drought and seven are fine.
+Regions In Drought =
+CALCULATE (
+    DISTINCTCOUNT ( fact_climate_monthly[region] ),
+    fact_climate_monthly[spi_12] <= -1
+)
+
+
+Share Of Regions In Drought =
+DIVIDE ( [Regions In Drought], COUNTROWS ( ALL ( dim_region ) ) )
+
+
+// Ordinal band. Risk bands are ORDERED, so they take a one-hue ramp
+// (light -> dark sand) plus this text label — never a traffic-light scale.
+Risk Band =
+VAR _r = [Climate Risk]
+RETURN
+    SWITCH (
+        TRUE (),
+        ISBLANK ( _r ), "No data",
+        _r >= 2.0, "Extreme",
+        _r >= 1.3, "Severe",
+        _r >= 0.8, "Watch",
+        "Normal"
+    )
+
+
+Risk Band Colour =
+SWITCH (
+    [Risk Band],
+    "Extreme", "#5B3808",   // dark theme: #E4C286
+    "Severe",  "#9C6D22",   // dark theme: #B07F31
+    "Watch",   "#CFA862",   // dark theme: #71501A
+    "Normal",  "#5A869F",   // dark theme: #4E8AA8
+    "#8D9BA3"
+)
+
+
+// ---------------------------------------------------------------------
+// 7. HEADLINE SENTENCE
+// ---------------------------------------------------------------------
+// A dashboard that tells the reader what it means beats one that makes them
+// infer it. Put this in a card at the top of the Executive page.
+
+Executive Headline =
+VAR _debt   = CALCULATE ( [Latest Value], dim_indicator[indicator] = "DEBT_GDP" )
+VAR _infl   = CALCULATE ( [Latest Value], dim_indicator[indicator] = "INFLATION" )
+VAR _unemp  = CALCULATE ( [Latest Value], dim_indicator[indicator] = "UNEMPLOYMENT_BROAD" )
+VAR _band   = [Risk Band]
+VAR _nDry   = [Regions In Drought]
+RETURN
+    "Debt at " & FORMAT ( _debt, "0.0" ) & "% of GDP · inflation "
+        & FORMAT ( _infl, "0.0" ) & "% · broad unemployment "
+        & FORMAT ( _unemp, "0.0" ) & "% · climate risk "
+        & LOWER ( _band )
+        & IF ( _nDry > 0, " (" & _nDry & " region(s) at SPI-12 ≤ -1)", "" )
+
+
+// ---------------------------------------------------------------------
+// 8. DATA FRESHNESS — put this in the footer of every page
+// ---------------------------------------------------------------------
+
+Data As Of =
+"Data as of " & FORMAT ( CALCULATE ( MAX ( fact_indicator[date] ), ALL ( fact_indicator ) ), "d mmm yyyy" )
+    & " · refreshed monthly via GitHub Actions"
+
+
+Source Note = CONCATENATEX ( VALUES ( fact_indicator[source] ), fact_indicator[source], " · " )
