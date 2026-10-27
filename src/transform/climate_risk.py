@@ -237,7 +237,7 @@ def add_temperature_index(monthly: pd.DataFrame, baseline: tuple[int, int]) -> p
     monthly = monthly.merge(rain_clim, on=["region", "month"], how="left")
     monthly["rain_anomaly_mm"] = monthly["precip_mm"] - monthly["precip_norm"]
     monthly["rain_pct_of_normal"] = np.where(
-        monthly["precip_norm"] > 0,
+        monthly["precip_norm"] > 5.0,
         100 * monthly["precip_mm"] / monthly["precip_norm"],
         np.nan,
     )
@@ -329,7 +329,7 @@ def main() -> int:
         )
     )
     annual["rain_pct_of_normal"] = np.where(
-        annual["precip_norm"] > 0, 100 * annual["precip_mm"] / annual["precip_norm"], np.nan)
+        annual["precip_norm"] > 5.0, 100 * annual["precip_mm"] / annual["precip_norm"], np.nan)
     annual.to_csv(CLIMATE_DIR / "climate_annual.csv", index=False)
 
     # National series = unweighted mean across regions (swap in a

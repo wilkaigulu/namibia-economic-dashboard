@@ -1,0 +1,11 @@
+slug,name,lat,lon,zone,national_reference,note
+khomas,Khomas (Windhoek),-22.56,17.08,Central Highlands,True,
+erongo,Erongo (Walvis Bay),-22.95,14.51,Coastal,False,Green hydrogen / desalination corridor
+karas,||Karas (Luderitz),-26.65,15.16,Coastal,False,Hyphen / Tsau ||Khaeb project area
+hardap,Hardap (Mariental),-24.63,17.97,Southern,False,"Irrigation, Hardap dam catchment"
+omaheke,Omaheke (Gobabis),-22.45,18.97,Eastern,False,Commercial cattle
+otjozondjupa,Otjozondjupa (Otjiwarongo),-20.46,16.65,Central North,False,
+kunene,Kunene (Opuwo),-18.06,13.84,North West,False,Most drought-exposed communal livestock
+oshana,Oshana (Oshakati),-17.78,15.7,North Central,False,"Cuvelai, highest population density"
+kavango_east,Kavango East (Rundu),-17.93,19.77,North East,False,Rain-fed crop belt
+zambezi,Zambezi (Katima Mulilo),-17.5,24.27,North East,False,"Wettest region, flood exposure"
