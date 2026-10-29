@@ -166,9 +166,11 @@ def main() -> int:
                        f"row count fell from {previous:,} to {len(fact):,} (>10% loss)")
         except ValueError:
             pass
-    stamp.write_text(str(len(fact)))
 
-    return _report()
+    status = _report()
+    if status == 0:
+           stamp.write_text(str(len(fact)))
+    return status
 
 
 def _report() -> int:
