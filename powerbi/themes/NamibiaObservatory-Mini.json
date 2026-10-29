@@ -1,0 +1,19 @@
+{
+  "name": "Namibia Observatory Mini",
+  "dataColors": [
+    "#1F6FB2",
+    "#D9772B",
+    "#0E9E7E",
+    "#C8453F",
+    "#D9A520",
+    "#6E5BC6",
+    "#7E9E2F",
+    "#D4568C"
+  ],
+  "background": "#FBFAF7",
+  "foreground": "#1C2B33",
+  "tableAccent": "#1F6FB2",
+  "good": "#1B7A4F",
+  "neutral": "#C79A1E",
+  "bad": "#A8302A"
+}

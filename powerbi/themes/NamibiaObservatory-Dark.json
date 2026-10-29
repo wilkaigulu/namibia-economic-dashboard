@@ -1,5 +1,5 @@
 {
-  "name": "Namibia Observatory \u2014 Dark",
+  "name": "Namibia Observatory Dark",
   "dataColors": [
     "#4894DA",
     "#BA5D03",
@@ -25,26 +25,6 @@
   "center": "#2B3A44",
   "maximum": "#9DCADE",
   "null": "#6E8696",
-  "divergentPalette": [
-    "#E0BD85",
-    "#C79C55",
-    "#A87B2B",
-    "#855C19",
-    "#6B4712",
-    "#2B3A44",
-    "#27536D",
-    "#356B88",
-    "#4E8AA8",
-    "#74ACC6",
-    "#9DCADE"
-  ],
-  "sequentialPalette": [
-    "#71501A",
-    "#916623",
-    "#B07F31",
-    "#CDA055",
-    "#E4C286"
-  ],
   "textClasses": {
     "callout": {
       "fontSize": 40,

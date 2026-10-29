@@ -1,5 +1,5 @@
 {
-  "name": "Namibia Observatory \u2014 Light",
+  "name": "Namibia Observatory Light",
   "dataColors": [
     "#1F6FB2",
     "#D9772B",
@@ -25,26 +25,6 @@
   "center": "#E6E3DC",
   "maximum": "#23455F",
   "null": "#8D9BA3",
-  "divergentPalette": [
-    "#5B3808",
-    "#7E5212",
-    "#A2761F",
-    "#B79450",
-    "#C6AC77",
-    "#E6E3DC",
-    "#9CB5C6",
-    "#779FB9",
-    "#5A869F",
-    "#3B6887",
-    "#23455F"
-  ],
-  "sequentialPalette": [
-    "#CFA862",
-    "#B78B3C",
-    "#9C6D22",
-    "#7E5213",
-    "#5B3808"
-  ],
   "textClasses": {
     "callout": {
       "fontSize": 40,
