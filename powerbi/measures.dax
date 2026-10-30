@@ -284,12 +284,12 @@ SWITCH (
 
 Executive Headline =
 VAR _debt  = CALCULATE ( [Latest Value], dim_indicator[indicator] = "DEBT_GDP" )
-VAR _infl  = CALCULATE ( [Latest Value], dim_indicator[indicator] = "INFLATION" )
+VAR _infl  = CALCULATE ( [Latest Value], dim_indicator[indicator] = "INFLATION_MONTHLY" )
 VAR _unemp = CALCULATE ( [Latest Value], dim_indicator[indicator] = "UNEMPLOYMENT_STRICT" )
 VAR _nDry  = [Regions In Drought]
 RETURN
     "Debt " & FORMAT ( _debt, "0.0" ) & "% of GDP · inflation " & FORMAT ( _infl, "0.0" )
-        & "% · unemployment " & FORMAT ( _unemp, "0.0" ) & "% (2023) · climate risk "
+        & "% (Sep) · unemployment " & FORMAT ( _unemp, "0.0" ) & "% (2023) · climate risk "
         & LOWER ( [Risk Band] )
         & IF (
             _nDry > 0,
@@ -311,3 +311,24 @@ VAR _d =
     )
 RETURN
     "Data as of " & FORMAT ( _d, "d mmm yyyy" ) & " · refreshed monthly via GitHub Actions"
+
+
+// ---------------------------------------------------------------------
+// 9. GREEN HYDROGEN PAGE (tables loaded straight from data/dimension/*.csv)
+// ---------------------------------------------------------------------
+// Statuses come from green_fdi_funding[Status]. The EIB's proposed loan
+// ("In talks (not committed)") is deliberately in neither measure.
+// Format both in Measure tools > Format > Custom:  "US$"0.0"m"
+
+Funding Secured (US$m) =
+CALCULATE (
+    SUM ( green_fdi_funding[Amount_USD_Million] ),
+    green_fdi_funding[Status] IN { "Approved", "Received", "Launched" }
+)
+
+
+Funding Pending (US$m) =
+CALCULATE (
+    SUM ( green_fdi_funding[Amount_USD_Million] ),
+    green_fdi_funding[Status] IN { "Pledged", "Announced", "Pending (plan stage)" }
+)
