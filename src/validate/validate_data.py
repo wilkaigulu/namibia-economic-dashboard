@@ -56,6 +56,13 @@ RANGES = {
     "RAINFALL_MONTHLY": (0, 800),
 }
 
+# Series the Power BI report reads. If one disappears, a curated CSV is missing.
+REQUIRED_SERIES = {
+    "GDP_GROWTH", "INFLATION", "INFLATION_MONTHLY", "UNEMPLOYMENT_STRICT",
+    "UNEMPLOYMENT_BROAD", "DEBT_GDP", "TOTAL_DEBT", "FISCAL_DEFICIT",
+    "INTEREST_PAYMENTS", "EXPORTS", "IMPORTS", "TRADE_BALANCE",
+}
+
 findings: list[tuple[str, str, str]] = []
 
 
@@ -82,6 +89,14 @@ def main() -> int:
         record("ERROR", "non_empty", "fact table has zero rows")
         _report()
         return 1
+
+    # ---- every series the report depends on must exist ---------------------
+    # A missing curated CSV only logs a warning in the build, so without this
+    # the scheduled refresh would quietly delete a series from the dashboard.
+    present = set(fact["indicator"].unique())
+    absent = sorted(REQUIRED_SERIES - present)
+    if absent:
+        record("ERROR", "required_series", f"missing from warehouse: {absent}")
 
     # ---- nulls -----------------------------------------------------------
     for col in ("date", "indicator", "value"):
