@@ -1,8 +1,7 @@
-Project,Capacity_MW,Type,COD,Cost,Status,Owner
-Sores ||Gaib Solar,100,Solar,Q4 2026,N$1.6bn,Under Construction,NamPower
-Diaz Wind,44,Wind,2026,$66m,Under Construction,IPP
-Cerim Wind,50,Wind,2026,$76m,Under Construction,IPP
-Khan Solar,20,Solar,2025,$14m,Under Construction,IPP
-Omburu Solar II,80,Solar,Q4 2028,N$1.3bn,Planned,NamPower
-Otijkoto Biomass,40,Biomass,2027,$160m,Planned,NamPower
-Baynes Hydro,440,Hydro,2031,$1.6bn,Feasibility,Namibia-Angola
+Project,Capacity_MW,Type,COD,Cost,Status,Owner,Note
+Sores |Gaib Solar,100,Solar,Q4 2026,N$1.6bn,Under Construction,NamPower,"Groundbreaking 19 Jun 2025. NamPower project page: COD Q4 2026. Earlier 'June 2026' target has slipped."
+Diaz Wind,44,Wind,2026,N$1.6bn,Commissioning,IPP,"InnoVent/InnoSun. 50 MW installed (11 turbines), 44 MW export limit. Inaugurated Oct 2026 with about 32 MW feeding the grid."
+Cerim Wind,50,Wind,Unverified,US$76.6m,Unverified,IPP,"Cerim Luderitz Energy (CEEC + Riminii). 25-year PPA with NamPower. Last source found (Wikipedia) gave COD July 2025 and no current status. Confirm."
+Omburu Solar II,80,Solar,Q4 2028,N$1.3bn,Planned,NamPower,"80 MWac. NamPower projects page."
+Otjikoto Biomass,40,Biomass,2027,N$2.64bn,Under Construction,NamPower,"NamPower projects page lists it as under construction. Mining & Energy (Apr 2026): expected by Jun 2027."
+Baynes Hydro,600,Hydro,~2033,US$1.2bn,Planned,Namibia-Angola,"600 MW total, 300 MW to each country. Financial close targeted end-2026, construction start Q1 2027, about 6 years to build."

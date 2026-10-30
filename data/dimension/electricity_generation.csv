@@ -1,7 +1,6 @@
-Source,Percentage,Installed_Capacity_MW,Color_Code
-Hydropower,35,347,#4facfe
-Imports,30,0,#f093fb
-Coal (Thermal),20,120,#232526
-Heavy Fuel Oil,10,76.5,#f5576c
-Solar PV,4,171,#11998e
-Wind,1,5,#667eea
+Source,Percentage,Installed_Capacity_MW,Is_Renewable,Color_Light,Color_Dark,Period,Note
+Imports,45.8,,Mixed,#8D9BA3,#6E8696,FY2024,"Share of units into the system (ZESCO, Eskom, ZPC, SAPP market). Imports have no installed capacity, so it is left blank."
+Hydropower (Ruacana),44.2,347,Yes,#1F6FB2,#4894DA,FY2024,"2,067 GWh of 4,676 GWh. Run-of-river, so output depends on Kunene flow."
+"Solar, wind and other IPPs",9.0,270,Yes,#D9A520,#B58703,FY2024,"REFIT/IPPs 361 GWh + NamPower Omburu PV 60.8 GWh. Capacity is approximate: about 250 MW IPPs (secondary source) + 20 MW Omburu. Diaz wind (50 MW installed) began feeding the grid in 2026 and is not in FY2024."
+Coal (Van Eck),0.9,120,No,#5B3808,#6B4712,FY2024,"Derived: NamPower 2,176 GWh minus Ruacana, Omburu and Anixas. Only 96 MW is available because of ageing boilers (IAR 2024 p.20)."
+Heavy Fuel Oil (Anixas),0.1,76.5,No,#C8453F,#CB4741,FY2024,"About 5.2 GWh dispatched. Capacity = Anixas I 22.5 MW + Anixas II 54 MW (Anixas II inaugurated Feb 2025, so mostly not in FY2024)."

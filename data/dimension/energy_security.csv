@@ -1,5 +1,5 @@
-Metric,Current_Value,Target_Value,Unit,Status
-Import Dependency,60,40,%,Above Target
-Peak Demand,673,1243,MW,Growing
-Renewable Share,21,70,%,Below Target
-Domestic Generation,40,80,%,Below Target
+Metric,Current_Value,Target_Value,Unit,Status,Period,Source,Note
+Import Dependency,45.8,20,%,Above Target,FY2024,NamPower Integrated Annual Report 2024 (p.14),"Audited. Monthly NSA data in 2025-26 ranged about 56-65% (e.g. Oct 2025: 62.2%). Target derived from the 80% self-sufficiency goal (IAR p.29). Replace with FY2025 when the 2025 report is out."
+Domestic Generation,54.2,80,%,Below Target,FY2024,NamPower Integrated Annual Report 2024 (p.22),"= 100 - import share. Target: 80% self-sufficiency by 2030 (IAR p.29)."
+Renewable Share of Supply,53.2,70,%,Below Target,FY2024,Calculated from IAR 2024 units,"(Ruacana + Omburu + IPPs) / units into system = 2,489 / 4,676 GWh. Excluding hydro it is 9.0%. The 70% target definition (capacity or energy) is inconsistent across sources; confirm."
+Peak Demand,672,,MW,Growing,FY2024,NamPower Integrated Annual Report 2024 (p.22),"4 June 2024, 20:00, excluding Skorpion; up from 633 MW the year before. No source found for the old 1,243 MW target."
