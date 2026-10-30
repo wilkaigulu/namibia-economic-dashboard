@@ -232,6 +232,23 @@ RETURN
     )
 
 
+// Text for the "Regions in drought" tile: shows "0 of 10" instead of blank.
+Regions In Drought Label =
+COALESCE ( [Regions In Drought], 0 ) & " of " & COUNTROWS ( ALL ( dim_region ) )
+
+
+// SPI-12 at the most recent month, ignoring the year slicer. Put
+// dim_region[name] on the axis to get one bar per region (Climate & Energy page).
+SPI 12 Latest =
+VAR _last = CALCULATE ( MAX ( fact_climate_monthly[date] ), REMOVEFILTERS ( dim_date ) )
+RETURN
+    CALCULATE (
+        [SPI 12],
+        REMOVEFILTERS ( dim_date ),
+        fact_climate_monthly[date] = _last
+    )
+
+
 // Ordinal band (Normal < 0.8, Watch >= 0.8, Severe >= 1.3, Extreme >= 2.0).
 Risk Band =
 VAR _r = [Climate Risk Latest]
@@ -266,11 +283,11 @@ SWITCH (
 Executive Headline =
 VAR _debt  = CALCULATE ( [Latest Value], dim_indicator[indicator] = "DEBT_GDP" )
 VAR _infl  = CALCULATE ( [Latest Value], dim_indicator[indicator] = "INFLATION" )
-VAR _unemp = CALCULATE ( [Latest Value], dim_indicator[indicator] = "UNEMPLOYMENT_BROAD" )
+VAR _unemp = CALCULATE ( [Latest Value], dim_indicator[indicator] = "UNEMPLOYMENT_STRICT" )
 VAR _nDry  = [Regions In Drought]
 RETURN
     "Debt " & FORMAT ( _debt, "0.0" ) & "% of GDP · inflation " & FORMAT ( _infl, "0.0" )
-        & "% · broad unemployment " & FORMAT ( _unemp, "0.0" ) & "% · climate risk "
+        & "% · unemployment " & FORMAT ( _unemp, "0.0" ) & "% (2023) · climate risk "
         & LOWER ( [Risk Band] )
         & IF (
             _nDry > 0,

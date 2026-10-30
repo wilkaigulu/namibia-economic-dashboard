@@ -1,43 +1,28 @@
 indicator,label,category,unit,frequency,source,direction,benchmark,description
-AGRI_VALUE_ADDED,Agriculture value added,Climate,percent_gdp,annual,World Bank,neutral,,World Bank indicator NV.AGR.TOTL.ZS
 CLIMATE_RISK_INDEX,Climate risk index,Climate,z_score,monthly,NASA POWER / derived,up_bad,1.3,National mean across regional grid points
-CO2_PER_CAPITA,CO2 emissions per capita,Climate,tco2e,annual,World Bank,up_bad,,World Bank indicator EN.GHG.CO2.PC.CE.AR5
 DROUGHT_SCORE,Drought severity (-SPI-12),Climate,z_score,monthly,NASA POWER / derived,up_bad,1.3,National mean across regional grid points
 RAINFALL_MONTHLY,Monthly rainfall,Climate,mm,monthly,NASA POWER / derived,up_good,,National mean across regional grid points
 RAIN_PCT_NORMAL,"Rainfall, % of normal",Climate,percent,monthly,NASA POWER / derived,up_good,100.0,National mean across regional grid points
-RURAL_POP_PCT,Rural population,Climate,percent,annual,World Bank,neutral,,World Bank indicator SP.RUR.TOTL.ZS
 SPI_12,SPI-12 (12-month rainfall),Climate,z_score,monthly,NASA POWER / derived,up_good,-1.0,National mean across regional grid points
 SPI_3,SPI-3 (3-month rainfall),Climate,z_score,monthly,NASA POWER / derived,up_good,-1.0,National mean across regional grid points
 TEMPERATURE,Mean temperature,Climate,celsius,monthly,NASA POWER / derived,neutral,,National mean across regional grid points
 TEMP_ANOMALY,Temperature anomaly,Climate,celsius,monthly,NASA POWER / derived,up_bad,,National mean across regional grid points
-WATER_STRESS,Freshwater withdrawal as share of resources,Climate,percent,annual,World Bank,up_bad,,World Bank indicator ER.H2O.FWST.ZS
-GDP_CURRENT_USD,"GDP, current prices",Economy,usd,annual,World Bank,up_good,,World Bank indicator NY.GDP.MKTP.CD
 GDP_GROWTH,GDP growth,Economy,percent,annual,World Bank,up_good,,World Bank indicator NY.GDP.MKTP.KD.ZG
 GDP_PER_CAPITA,GDP per capita,Economy,usd,annual,World Bank,up_good,,World Bank indicator NY.GDP.PCAP.CD
 INFLATION,Inflation rate,Economy,percent,annual,Bank of Namibia,up_bad,4.5,
 INFLATION_WB,"Inflation, consumer prices",Economy,percent,annual,World Bank,up_bad,,World Bank indicator FP.CPI.TOTL.ZG
 POPULATION,Population,Economy,persons,annual,World Bank,neutral,,World Bank indicator SP.POP.TOTL
-ELECTRICITY_ACCESS,Access to electricity,Energy,percent,annual,World Bank,up_good,,World Bank indicator EG.ELC.ACCS.ZS
-ENERGY_USE_PC,Energy use per capita,Energy,kgoe,annual,World Bank,neutral,,World Bank indicator EG.USE.PCAP.KG.OE
-RENEWABLE_ELEC,Renewable electricity output,Energy,percent,annual,World Bank,up_good,,World Bank indicator EG.ELC.RNEW.ZS
-RENEWABLE_SHARE,Renewables in final energy consumption,Energy,percent,annual,World Bank,up_good,,World Bank indicator EG.FEC.RNEW.ZS
-CURRENT_ACCOUNT,Current account balance,Finance,percent_gdp,annual,World Bank,neutral,,World Bank indicator BN.CAB.XOKA.GD.ZS
 DEBT_GDP,Debt-to-GDP,Finance,percent_gdp,annual,Ministry of Finance / IMF,up_bad,60.0,
 DEBT_GDP_WB,Central government debt,Finance,percent_gdp,annual,World Bank,up_bad,,World Bank indicator GC.DOD.TOTL.GD.ZS
 FDI,FDI net inflows,Finance,percent_gdp,annual,World Bank,up_good,,World Bank indicator BX.KLT.DINV.WD.GD.ZS
 FISCAL_DEFICIT,Fiscal deficit,Finance,percent_gdp,annual,Ministry of Finance / IMF,up_bad,3.0,
 INTEREST_PAYMENTS,Interest payments,Finance,nad_billion,annual,Ministry of Finance / IMF,up_bad,,
-RESERVES_MONTHS,Reserves in months of imports,Finance,months,annual,World Bank,up_good,,World Bank indicator FI.RES.TOTL.MO
 TOTAL_DEBT,Total public debt,Finance,nad_billion,annual,Ministry of Finance / IMF,up_bad,,
-UNEMPLOYMENT_BROAD,Unemployment (broad),Labour,percent,annual,NSA Labour Force Survey,up_bad,,
+UNEMPLOYMENT_BROAD,"Unemployment (broad, analyst estimate)",Labour,percent,annual,NSA LFS / analyst estimate,up_bad,,
 UNEMPLOYMENT_STRICT,Unemployment (strict),Labour,percent,annual,NSA Labour Force Survey,up_bad,,
 UNEMPLOYMENT_WB,"Unemployment, ILO estimate",Labour,percent,annual,World Bank,up_bad,,World Bank indicator SL.UEM.TOTL.ZS
 UNEMPLOYMENT_YOUTH,Youth unemployment (est.),Labour,percent,annual,NSA Labour Force Survey,up_bad,,
-YOUTH_UNEMP_WB,"Youth unemployment, ILO estimate",Labour,percent,annual,World Bank,up_bad,,World Bank indicator SL.UEM.1524.ZS
 EXPORTS,Merchandise exports,Trade,nad_million,annual,NSA,up_good,,
-EXPORTS_GDP,Exports of goods and services,Trade,percent_gdp,annual,World Bank,up_good,,World Bank indicator NE.EXP.GNFS.ZS
 IMPORTS,Merchandise imports,Trade,nad_million,annual,NSA,neutral,,
-IMPORTS_GDP,Imports of goods and services,Trade,percent_gdp,annual,World Bank,neutral,,World Bank indicator NE.IMP.GNFS.ZS
-MINERAL_RENTS,Mineral rents,Trade,percent_gdp,annual,World Bank,neutral,,World Bank indicator NY.GDP.MINR.RT.ZS
 TRADE_BALANCE,Trade balance,Trade,nad_million,annual,NSA,up_good,0.0,
 TRADE_GDP,Trade openness,Trade,percent_gdp,annual,World Bank,neutral,,World Bank indicator NE.TRD.GNFS.ZS

@@ -65,7 +65,7 @@ CURATED_SOURCES = [
     ("unemployment.csv", "Survey_Year", "Strict_Unemployment_Pct", "UNEMPLOYMENT_STRICT",
      "Unemployment (strict)", "percent", "Labour", "NSA Labour Force Survey", "up_bad", None),
     ("unemployment.csv", "Survey_Year", "Broad_Unemployment_Pct", "UNEMPLOYMENT_BROAD",
-     "Unemployment (broad)", "percent", "Labour", "NSA Labour Force Survey", "up_bad", None),
+     "Unemployment (broad, analyst estimate)", "percent", "Labour", "NSA LFS / analyst estimate", "up_bad", None),
     ("unemployment.csv", "Survey_Year", "Youth_Unemployment_Est_Pct", "UNEMPLOYMENT_YOUTH",
      "Youth unemployment (est.)", "percent", "Labour", "NSA Labour Force Survey", "up_bad", None),
 

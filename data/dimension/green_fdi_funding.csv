@@ -1,6 +1,9 @@
-Partner,Amount_NS_Million,Amount_USD_Million,Purpose,Type
-Germany (BMWK),280,15.6,Technical assistance + wind measurement,Grant
-African Development Bank (SEFA),0,10,Hyphen FEED study,Loan
-USAID,0,1,SDG Namibia One Fund mobilization,Grant
-EU / Netherlands,242,13.4,HyIron Phase 2 expansion,Grant
-Climate Investment Fund,0,500,Industry Decarbonization Programme,Concessional
+Partner,Amount_NS_Million,Amount_USD_Million,Purpose,Type,Status,Date,Note
+Green Climate Fund (via SDG Namibia One Fund),1000,56,US$15m project development and US$41m construction equity for green hydrogen and industrial decarbonisation,Catalytic (instrument not specified),Approved,2026-10,N$ figure is approximate (Mining & Energy).
+EU and Netherlands (SDG Namibia One Fund),258,14.1,Capital for the green hydrogen blended-finance fund,Grant,Pledged,2025-04,EUR 12.9m. USD value approximate at about N$18.3/US$.
+African Development Bank (SEFA),170,10,Hyphen front-end engineering and design (FEED),Loan,Approved,2025-12,N$ value from Windhoek Express; The Brief headline says N$190m.
+African Development Bank (reimbursable grant),100,5.9,Hyphen project development to FID,Reimbursable grant,Announced,2026-09,Sept 2026 per The Namibian. USD from Hyphen's announcement of a US$5.93m AfDB award; confirm it is the same award.
+Climate Investment Funds (Industry Decarbonization),,250,Concessional capital for green industrialisation; Namibia ranked 3rd of 26,Concessional,Pending (plan stage),2025-06,Up to US$250m. Not awarded or disbursed.
+Germany (BMWK),50,2.7,"Wind resource measurement campaign, Tsau //Khaeb National Park (12-24 months)",Grant,Launched,2025-Q1,Replaces the unverified N$280m / US$15.6m 'technical assistance' line.
+USAID,19,1,Namibia Hydrogen Fund Managers / SDG Namibia One Fund,Grant,Received,2024-03,Early 2024. Check current USAID status before relying on further tranches.
+European Investment Bank,10000,570.8,"Proposed loan (3.5% interest, five-year grace period)",Loan,In talks (not committed),2025,Exclude from totals until signed.

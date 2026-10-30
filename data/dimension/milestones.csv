@@ -1,7 +1,9 @@
-Event,Expected_Date,Status,Category,Impact
-Hyphen FID (Final Investment Decision),2026,Pending,Investment,Critical
-Sores ||Gaib 100MW Solar COD,Q4 2026,Under Construction,Energy,High
-Diaz 44MW Wind COD,2026,Under Construction,Energy,Medium
-Cerim 50MW Wind COD,2026,Under Construction,Energy,Medium
-National Green Hydrogen Policy approval,2026,Under Review,Policy,High
-Cross-border pipeline master plan,Mid-2026,In Progress,Infrastructure,Medium
+Event,Expected_Date,Status,Category,Impact,Note
+Hyphen FID (Final Investment Decision),End-2027,Delayed,Investment,Critical,"Was 2026. Source: The Namibian, 6 Oct 2026."
+GCF approves US$56m for SDG Namibia One Fund,Oct 2026,Done,Investment,High,29 Oct 2026.
+Sores |Gaib 100MW Solar COD,Q4 2026,Under Construction,Energy,High,NamPower projects page.
+Diaz 44MW Wind (50 MW installed) inauguration,Oct 2026,Commissioning,Energy,Medium,About 32 MW feeding the grid at inauguration.
+Cerim 50MW Wind COD,Unverified,Unverified,Energy,Medium,Last source found targeted July 2025; no current status found.
+National Green Hydrogen Policy approval,Unconfirmed,Under Review,Policy,High,Policy completed in 2025; Cabinet approval date not found.
+Green Hydrogen Bill to Parliament,End-2026,Consultation,Policy,High,"Per directorate of law reform, June 2026."
+Cross-border pipeline master plan,Mid-2026,Due; completion not confirmed,Infrastructure,Medium,N$30m study scheduled mid-2025 to mid-2026.

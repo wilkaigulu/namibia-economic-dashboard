@@ -1,15 +1,14 @@
-KPI_Name,Current_Value,Unit,Period,Trend,Source
-Inflation Rate,4.0,%,2026 Forecast,Up,Bank of Namibia
-Repo Rate,6.25,%,Current,Stable,Bank of Namibia
-Unemployment (Strict),36.9,%,2023,Up,NSA
-Unemployment (Broad),54.8,%,2023,Up,NSA
-Debt-to-GDP,65.2,%,FY2025/26,Down,Ministry of Finance
-Total Debt,174.5,N$ Billion,FY2025/26,Up,Ministry of Finance
-Trade Balance,-3100,N$ Million,May 2026,Improving,NSA
-Trade Exports,12400,N$ Million,May 2026,Up,NSA
-Trade Imports,15500,N$ Million,May 2026,Up,NSA
-Renewable Share,21,%,Current,Up,NamPower
-Import Dependency,60,%,Current,High,NamPower
-Green FDI Committed,37.4,N$ Billion,To Date,Up,NGH2P
-Green Hydrogen Jobs,800,Jobs,To Date,Up,NGH2P
-Investment Needed 2040,190,USD Billion,2040 Target,Massive,NGH2P
+KPI_Name,Current_Value,Unit,Period,Trend,Source,Note
+Inflation Rate,5.4,%,Sep 2026 (annual),Up,NSA via Trading Economics / Rio Times,"Two-year high; 4.4% in Jun, 2.1% in Mar. BoN's 2026 average forecast was 4.0% (Jun)."
+Repo Rate,7.0,%,28 Oct 2026,Up,Bank of Namibia (via Rio Times),Secondary source; BoN's own Aug 2026 statement shows 6.75%. Confirm on bon.com.na.
+Unemployment (Strict),36.9,%,2023,Up,NSA Labour Force Survey 2023,New definition; not comparable with the 33.4% reported for 2018.
+Unemployment (Broad),54.8,%,2023,Up,"Analyst estimate (Cirrus Capital), old definition",Not an official NSA headline figure.
+Debt-to-GDP,68.7,%,FY2026/27,Up,"Ministry of Finance, Mid-Year Budget Review (Oct 2026)","Reported via Xinhua, 23 Oct 2026."
+Total Debt,201.7,N$ Billion,FY2026/27,Up,"Ministry of Finance, Mid-Year Budget Review (Oct 2026)","Reported via Xinhua, 23 Oct 2026."
+Trade Balance,-20000,N$ Million,H1 2026,Widening,NSA via The Brief,June 2026 alone: -N$5.5bn.
+Trade Exports,67200,N$ Million,H1 2026,Down,NSA via The Brief,Six-month total.
+Trade Imports,87200,N$ Million,H1 2026,Up,NSA via The Brief,Six-month total.
+Renewable Share of Supply,53.2,%,FY2024,Stable,NamPower Integrated Annual Report 2024 (calculated),Includes Ruacana hydro. 9.0% excluding hydro.
+Import Dependency,45.8,%,FY2024,Stable,NamPower Integrated Annual Report 2024,Monthly 2025-26 data ran about 56-65%.
+Green FDI Committed,2.08,N$ Billion,To date (Mid-2025),Up,NGH2P Mid-Year Review 2025 (ESI Africa),"Replaces 37.4, which had no source."
+Green Hydrogen Jobs,800,Jobs,To date (2025),Flat,"NGH2P (more than 800, Aug 2025)",One later report says fewer than 800 by Oct 2025.
