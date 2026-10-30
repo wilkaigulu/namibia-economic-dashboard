@@ -1,6 +1,6 @@
-name: CI 
+name: CI
 
-on: 
+on:
   push:
     branches: [main]
   pull_request:
@@ -9,22 +9,23 @@ permissions:
   contents: read
 
 jobs:
-  check: 
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: 
+        with:
           python-version: "3.12"
           cache: pip
-          cache_dependency-path: requirements.txt
+          cache-dependency-path: requirements.txt
 
       - run: pip install -r requirements.txt ruff==0.8.4
 
       - name: Lint
         run: ruff check src pipeline.py
 
-      # Rebuilds the warehouse from the CSVc already in the repo and runs the full validation gate. 
-      # Catches a broken transform on the PR instead of at 04:00 on the 1st. 
+      # Rebuilds the warehouse from the CSVs already in the repo and runs the
+      # full validation gate. Catches a broken transform on the PR instead of
+      # at 04:00 on the 1st.
       - name: Rebuild offline and validate
         run: python pipeline.py --offline

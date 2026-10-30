@@ -1,14 +1,20 @@
-name: Update Dashboard Data
-    
+name: Update dashboard data
+
 on:
   schedule:
-    # 04:00 UTC = 06:00 Windhoek, on the 1st of every month. 
+    # 04:00 UTC = 06:00 Windhoek, on the 1st of every month.
+    # Monthly, not quarterly: NASA POWER updates daily and the climate risk
+    # index is a monthly series, so a quarterly cadence left it up to 3 months
+    # stale. World Bank revisions land irregularly, so monthly costs nothing.
     - cron: "0 4 1 * *"
   workflow_dispatch:
 
-permissionss: 
+# Without this the default GITHUB_TOKEN is read-only on many repos and the
+# auto-commit step fails with a 403 after the whole pipeline has already run.
+permissions:
   contents: write
 
+# Never let two refreshes race each other into the same branch.
 concurrency:
   group: update-data
   cancel-in-progress: false
@@ -19,15 +25,15 @@ jobs:
     timeout-minutes: 45
 
     steps:
-      - name: Checkout  
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
-        with: 
+        with:
           python-version: "3.12"
           cache: pip
-          cache_dependency-path: requirements.text
+          cache-dependency-path: requirements.txt
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -35,7 +41,7 @@ jobs:
       - name: Run pipeline
         run: python pipeline.py
 
-      - name: Summarise the build 
+      - name: Summarise the build
         if: always()
         run: |
           {
@@ -43,7 +49,7 @@ jobs:
             echo ''
             echo '```'
             python - <<'PY'
-            import pandas as pd
+          import pandas as pd
           f = pd.read_csv("data/warehouse/fact_indicator.csv", parse_dates=["date"])
           print(f"rows      {len(f):,}")
           print(f"series    {f['indicator'].nunique()}")
@@ -53,7 +59,9 @@ jobs:
           PY
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
-          
+
+      # Artefacts are kept even on failure so you can inspect what the
+      # pipeline produced without having to reproduce the run locally.
       - name: Upload warehouse artefact
         if: always()
         uses: actions/upload-artifact@v4
@@ -62,9 +70,9 @@ jobs:
           path: data/warehouse/
           retention-days: 30
 
-      - name: Commit refreshed data 
+      - name: Commit refreshed data
         if: success()
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "data: scheduled refresh (run ${{ github.run_number }})"
-          file_pattern: "data/**/*.csv data/**/*.parquet" 
+          file_pattern: "data/**/*.csv data/**/*.parquet"
