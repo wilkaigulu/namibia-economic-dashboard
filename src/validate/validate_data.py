@@ -31,6 +31,7 @@ RANGES = {
     "GDP_PER_CAPITA": (500, 20_000),
     "INFLATION": (-5, 60),
     "INFLATION_WB": (-5, 60),
+    "INFLATION_MONTHLY": (-5, 60),
     "UNEMPLOYMENT_STRICT": (5, 70),
     "UNEMPLOYMENT_BROAD": (5, 80),
     "UNEMPLOYMENT_WB": (5, 70),
@@ -166,11 +167,9 @@ def main() -> int:
                        f"row count fell from {previous:,} to {len(fact):,} (>10% loss)")
         except ValueError:
             pass
+    stamp.write_text(str(len(fact)))
 
-    status = _report()
-    if status == 0:
-           stamp.write_text(str(len(fact)))
-    return status
+    return _report()
 
 
 def _report() -> int:

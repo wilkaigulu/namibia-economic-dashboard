@@ -1,0 +1,11 @@
+Date,Inflation_Rate_Pct,Source,Notes
+2025-12-01,3.2,NSA NCPI via The Brief,
+2026-01-01,2.9,Eulerpool,Single source - check against NSA January 2026 bulletin
+2026-02-01,2.4,NSA NCPI Bulletin Feb 2026,
+2026-03-01,2.1,NSA NCPI Bulletin Mar 2026,
+2026-04-01,3.1,NSA NCPI via The Brief,
+2026-05-01,4.1,Eulerpool,Single source - check against NSA May 2026 bulletin
+2026-06-01,4.4,NSA NCPI via Trading Economics,
+2026-07-01,4.4,NSA NCPI via Trading Economics,
+2026-08-01,5.0,NSA NCPI via Trading Economics,
+2026-09-01,5.4,NSA NCPI via Trading Economics / Rio Times,Highest in over two years; transport 14.9% and fuel 30.4% y/y

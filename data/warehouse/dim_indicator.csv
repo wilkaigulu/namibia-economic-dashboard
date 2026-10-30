@@ -10,6 +10,7 @@ TEMP_ANOMALY,Temperature anomaly,Climate,celsius,monthly,NASA POWER / derived,up
 GDP_GROWTH,GDP growth,Economy,percent,annual,World Bank,up_good,,World Bank indicator NY.GDP.MKTP.KD.ZG
 GDP_PER_CAPITA,GDP per capita,Economy,usd,annual,World Bank,up_good,,World Bank indicator NY.GDP.PCAP.CD
 INFLATION,Inflation rate,Economy,percent,annual,Bank of Namibia,up_bad,4.5,
+INFLATION_MONTHLY,"Inflation, latest monthly reading",Economy,percent,monthly,NSA NCPI,up_bad,4.5,
 INFLATION_WB,"Inflation, consumer prices",Economy,percent,annual,World Bank,up_bad,,World Bank indicator FP.CPI.TOTL.ZG
 POPULATION,Population,Economy,persons,annual,World Bank,neutral,,World Bank indicator SP.POP.TOTL
 DEBT_GDP,Debt-to-GDP,Finance,percent_gdp,annual,Ministry of Finance / IMF,up_bad,60.0,

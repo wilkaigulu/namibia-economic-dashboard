@@ -97,6 +97,8 @@ VAR _prev =
         fact_indicator[is_forecast] = FALSE (),
         fact_indicator[date] < _latest
     )
+VAR _freq   = SELECTEDVALUE ( dim_indicator[frequency] )
+VAR _when   = IF ( _freq = "monthly", FORMAT ( _prev, "mmm yyyy" ), FORMAT ( _prev, "yyyy" ) )
 VAR _txt =
     SWITCH (
         TRUE (),
@@ -109,7 +111,7 @@ VAR _txt =
 RETURN
     IF (
         NOT ISBLANK ( _chg ),
-        [Change Arrow] & " " & _txt & " vs " & FORMAT ( _prev, "yyyy" )
+        [Change Arrow] & " " & _txt & " vs " & _when
     )
 
 

@@ -62,6 +62,9 @@ CURATED_SOURCES = [
     ("inflation_history.csv", "Year", "Inflation_Rate_Pct", "INFLATION",
      "Inflation rate", "percent", "Economy", "Bank of Namibia", "up_bad", 4.5),
 
+    ("inflation_monthly.csv", "Date", "Inflation_Rate_Pct", "INFLATION_MONTHLY",
+     "Inflation, latest monthly reading", "percent", "Economy", "NSA NCPI", "up_bad", 4.5),
+
     ("unemployment.csv", "Survey_Year", "Strict_Unemployment_Pct", "UNEMPLOYMENT_STRICT",
      "Unemployment (strict)", "percent", "Labour", "NSA Labour Force Survey", "up_bad", None),
     ("unemployment.csv", "Survey_Year", "Broad_Unemployment_Pct", "UNEMPLOYMENT_BROAD",
@@ -76,6 +79,9 @@ CURATED_SOURCES = [
     ("trade_balance.csv", "Year", "Balance_NS_Million", "TRADE_BALANCE",
      "Trade balance", "nad_million", "Trade", "NSA", "up_good", 0.0),
 ]
+
+# Curated files that are not annual (default is annual).
+FREQUENCY_BY_FILE = {"inflation_monthly.csv": "monthly"}
 
 # Rows at or beyond these years in these files are projections, not outturns.
 FORECAST_FROM = {
@@ -227,8 +233,8 @@ def load_curated() -> None:
         add(
             cache[file], date_col, value_col,
             indicator=indicator, label=label, unit=unit, category=category,
-            source=source, frequency="annual", direction=direction,
-            benchmark=benchmark,
+            source=source, frequency=FREQUENCY_BY_FILE.get(file, "annual"),
+            direction=direction, benchmark=benchmark,
         )
 
     log.info("curated: %s series loaded", len(CURATED_SOURCES))

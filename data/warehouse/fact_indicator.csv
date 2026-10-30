@@ -307,9 +307,6 @@ date,year,month,quarter,indicator,value,unit,frequency,category,source,is_foreca
 2024-01-01,2024,1,1,DEBT_GDP,67.1,percent_gdp,annual,Finance,Ministry of Finance / IMF,False
 2025-01-01,2025,1,1,DEBT_GDP,66.1,percent_gdp,annual,Finance,Ministry of Finance / IMF,False
 2026-01-01,2026,1,1,DEBT_GDP,68.7,percent_gdp,annual,Finance,Ministry of Finance / IMF,False
-2027-01-01,2027,1,1,DEBT_GDP,67.1,percent_gdp,annual,Finance,Ministry of Finance / IMF,True
-2028-01-01,2028,1,1,DEBT_GDP,67.9,percent_gdp,annual,Finance,Ministry of Finance / IMF,True
-2029-01-01,2029,1,1,DEBT_GDP,68.6,percent_gdp,annual,Finance,Ministry of Finance / IMF,True
 2007-01-01,2007,1,1,DEBT_GDP_WB,117.515261124236,percent_gdp,annual,Finance,World Bank,False
 2008-01-01,2008,1,1,DEBT_GDP_WB,1.10133141237365,percent_gdp,annual,Finance,World Bank,False
 2009-01-01,2009,1,1,DEBT_GDP_WB,0.277603198530483,percent_gdp,annual,Finance,World Bank,False
@@ -657,9 +654,6 @@ date,year,month,quarter,indicator,value,unit,frequency,category,source,is_foreca
 2024-01-01,2024,1,1,FISCAL_DEFICIT,5.8,percent_gdp,annual,Finance,Ministry of Finance / IMF,False
 2025-01-01,2025,1,1,FISCAL_DEFICIT,5.5,percent_gdp,annual,Finance,Ministry of Finance / IMF,False
 2026-01-01,2026,1,1,FISCAL_DEFICIT,5.5,percent_gdp,annual,Finance,Ministry of Finance / IMF,False
-2027-01-01,2027,1,1,FISCAL_DEFICIT,5.0,percent_gdp,annual,Finance,Ministry of Finance / IMF,True
-2028-01-01,2028,1,1,FISCAL_DEFICIT,4.5,percent_gdp,annual,Finance,Ministry of Finance / IMF,True
-2029-01-01,2029,1,1,FISCAL_DEFICIT,4.0,percent_gdp,annual,Finance,Ministry of Finance / IMF,True
 2000-01-01,2000,1,1,GDP_GROWTH,3.49218336365178,percent,annual,Economy,World Bank,False
 2001-01-01,2001,1,1,GDP_GROWTH,1.17794869467917,percent,annual,Economy,World Bank,False
 2002-01-01,2002,1,1,GDP_GROWTH,4.7886612188211,percent,annual,Economy,World Bank,False
@@ -724,7 +718,16 @@ date,year,month,quarter,indicator,value,unit,frequency,category,source,is_foreca
 2023-01-01,2023,1,1,INFLATION,5.9,percent,annual,Economy,Bank of Namibia,False
 2024-01-01,2024,1,1,INFLATION,4.5,percent,annual,Economy,Bank of Namibia,False
 2025-01-01,2025,1,1,INFLATION,3.6,percent,annual,Economy,Bank of Namibia,False
-2026-01-01,2026,1,1,INFLATION,4.0,percent,annual,Economy,Bank of Namibia,True
+2025-12-01,2025,12,4,INFLATION_MONTHLY,3.2,percent,monthly,Economy,NSA NCPI,False
+2026-01-01,2026,1,1,INFLATION_MONTHLY,2.9,percent,monthly,Economy,NSA NCPI,False
+2026-02-01,2026,2,1,INFLATION_MONTHLY,2.4,percent,monthly,Economy,NSA NCPI,False
+2026-03-01,2026,3,1,INFLATION_MONTHLY,2.1,percent,monthly,Economy,NSA NCPI,False
+2026-04-01,2026,4,2,INFLATION_MONTHLY,3.1,percent,monthly,Economy,NSA NCPI,False
+2026-05-01,2026,5,2,INFLATION_MONTHLY,4.1,percent,monthly,Economy,NSA NCPI,False
+2026-06-01,2026,6,2,INFLATION_MONTHLY,4.4,percent,monthly,Economy,NSA NCPI,False
+2026-07-01,2026,7,3,INFLATION_MONTHLY,4.4,percent,monthly,Economy,NSA NCPI,False
+2026-08-01,2026,8,3,INFLATION_MONTHLY,5.0,percent,monthly,Economy,NSA NCPI,False
+2026-09-01,2026,9,3,INFLATION_MONTHLY,5.4,percent,monthly,Economy,NSA NCPI,False
 2003-01-01,2003,1,1,INFLATION_WB,7.1361531145863,percent,annual,Economy,World Bank,False
 2004-01-01,2004,1,1,INFLATION_WB,4.13663213144748,percent,annual,Economy,World Bank,False
 2005-01-01,2005,1,1,INFLATION_WB,2.28194607024307,percent,annual,Economy,World Bank,False
