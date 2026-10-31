@@ -6,7 +6,7 @@ star-schema warehouse; a four-page Power BI report sits on top of it. National
 indicators and climate data refresh monthly through GitHub Actions.
 
 **Author:** Wilka Igulu · [wilkaigulu.com](https://wilkaigulu.com)
-· Climate risk research · Economic analytics · Climate finance
+· Quantitative Data Analyst · Climate risk research · Economic analytics 
 
 ---
 
